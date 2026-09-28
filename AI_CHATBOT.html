@@ -1,0 +1,2810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wendy's & Co. — Style Made For You</title>
+<link rel="icon" type="image/png" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='white'/><path d='M25 30 h20 a20 20 0 0 1 0 40 h-20 z M55 30 h20 a20 20 0 0 1 0 40 h-20 z' fill='%230D2340'/><polyline points='20,70 35,60 45,65 55,50 65,55 75,35 85,25' stroke='%23F5A623' stroke-width='4' fill='none' stroke-linecap='round' stroke-linejoin='round'/><circle cx='20' cy='70' r='3' fill='%23F5A623'/><circle cx='35' cy='60' r='3' fill='white' stroke='%23F5A623' stroke-width='2'/><circle cx='45' cy='65' r='3' fill='white' stroke='%23F5A623' stroke-width='2'/><circle cx='55' cy='50' r='3' fill='white' stroke='%23F5A623' stroke-width='2'/><circle cx='65' cy='55' r='3' fill='white' stroke='%23F5A623' stroke-width='2'/><circle cx='75' cy='35' r='3' fill='white' stroke='%23F5A623' stroke-width='2'/><polygon points='80,20 90,30 82,32' fill='%23F5A623'/><text x='50' y='88' text-anchor='middle' font-family='Arial' font-size='10' font-weight='bold' fill='%230D2340'>DATA</text><text x='50' y='98' text-anchor='middle' font-family='Arial' font-size='10' font-weight='bold' fill='%23F5A623'>PIONEERS</text></svg>">
+<style>
+  :root{
+    --cream:#FAF7F2; --ivory:#FFFDF9; --charcoal:#1E1B18; --ink:#2B2723;
+    --muted:#7A716A; --rose:#C99383; --rose-deep:#A9715F; --gold:#C6A15B;
+    --burgundy:#6E1F2E; --burgundy-deep:#4E1622;
+    --line:#E8E1D8; --white:#FFFFFF;
+    --shadow:0 8px 30px rgba(30,27,24,.08);
+    --shadow-lg:0 20px 60px rgba(30,27,24,.14);
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:500;line-height:1.2;color:var(--charcoal)}
+  h1{font-size:clamp(2.2rem,5vw,4rem)}
+  h2{font-size:clamp(1.6rem,3vw,2.4rem);margin-bottom:.6rem}
+  h3{font-size:1.15rem;margin-bottom:.4rem}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+  img{max-width:100%;display:block}
+  input,select,textarea{font-family:inherit;font-size:1rem}
+
+  .wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+  section{padding:80px 0}
+  .section-head{margin-bottom:36px}
+  .eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--rose-deep);font-weight:600;margin-bottom:10px}
+
+  header.nav{position:sticky;top:0;z-index:80;background:rgba(250,247,242,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:76px;gap:20px}
+  .logo{font-family:'Playfair Display',serif;font-size:1.45rem;letter-spacing:.02em;font-weight:600}
+  .logo span{color:var(--rose-deep)}
+  .nav-links{display:flex;gap:24px;font-size:.92rem;font-weight:500}
+  .nav-links a{position:relative;padding:4px 0;transition:color .2s}
+  .nav-links a:hover{color:var(--rose-deep)}
+  .nav-links a::after{content:'';position:absolute;left:0;bottom:-2px;height:1px;width:0;background:var(--rose-deep);transition:width .25s}
+  .nav-links a:hover::after{width:100%}
+  .nav-actions{display:flex;align-items:center;gap:8px}
+  .icon-btn{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;transition:background .2s,transform .2s;position:relative}
+  .icon-btn:hover{background:#F0EAE2}
+  .icon-btn svg{width:20px;height:20px;stroke:var(--ink);fill:none;stroke-width:1.7}
+  .cart-count{position:absolute;top:2px;right:2px;background:var(--rose-deep);color:#fff;font-size:.65rem;font-weight:700;min-width:18px;height:18px;border-radius:9px;display:grid;place-items:center;padding:0 4px}
+  .btn{display:inline-flex;align-items:center;gap:8px;justify-content:center;padding:13px 26px;border-radius:999px;font-size:.9rem;font-weight:600;transition:transform .2s,box-shadow .2s,background .2s;letter-spacing:.01em}
+  .btn:active{transform:scale(.97)}
+  .btn-primary{background:var(--charcoal);color:var(--ivory)}
+  .btn-primary:hover{box-shadow:0 10px 25px rgba(30,27,24,.25);transform:translateY(-1px)}
+  .btn-rose{background:var(--rose-deep);color:#fff}
+  .btn-rose:hover{box-shadow:0 10px 25px rgba(169,113,95,.4);transform:translateY(-1px)}
+  .btn-outline{border:1.5px solid var(--charcoal);color:var(--charcoal)}
+  .btn-outline:hover{background:var(--charcoal);color:var(--ivory)}
+  .btn-ghost{border:1px solid var(--line);background:#fff;color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--charcoal)}
+  .btn-sm{padding:9px 18px;font-size:.82rem}
+  .btn-block{width:100%}
+  .hamburger{display:none;width:42px;height:42px;place-items:center;border-radius:50%}
+  .hamburger span{display:block;width:20px;height:1.8px;background:var(--ink);margin:4px 0}
+  .user-badge{display:flex;align-items:center;gap:8px;padding:6px 14px 6px 6px;background:#fff;border:1px solid var(--line);border-radius:999px;font-size:.82rem;font-weight:600;cursor:pointer;transition:.2s}
+  .user-badge:hover{border-color:var(--rose-deep)}
+  .user-avatar{width:30px;height:30px;border-radius:50%;background:var(--rose-deep);color:#fff;display:grid;place-items:center;font-size:.82rem;font-weight:700}
+
+  .hero{position:relative;min-height:80vh;display:flex;align-items:center;background:linear-gradient(120deg,#F5EFE7 0%,#FAF7F2 60%,#F1E8DD 100%);overflow:hidden}
+  .hero::before{content:'';position:absolute;right:-8%;top:-10%;width:56%;height:120%;background:radial-gradient(circle at 30% 40%,rgba(201,147,131,.35),transparent 55%),radial-gradient(circle at 70% 70%,rgba(198,161,91,.28),transparent 55%),radial-gradient(circle at 50% 20%,rgba(169,113,95,.22),transparent 60%);filter:blur(40px);animation:blob 14s ease-in-out infinite alternate}
+  @keyframes blob{from{transform:translate(0,0) scale(1)}to{transform:translate(-3%,3%) scale(1.08)}}
+  .hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;padding:60px 0}
+  .hero p.lede{font-size:1.1rem;color:var(--muted);max-width:520px;margin:22px 0 32px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-visual{position:relative;aspect-ratio:4/5;border-radius:24px;overflow:hidden;box-shadow:var(--shadow-lg);background:#EADFD2}
+  .hero-visual img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s}
+  .hero-visual:hover img{transform:scale(1.05)}
+  .hero-badge{position:absolute;bottom:22px;left:22px;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);padding:14px 18px;border-radius:14px;font-size:.82rem;box-shadow:var(--shadow)}
+  .hero-badge strong{display:block;font-family:'Playfair Display',serif;font-size:1.05rem}
+
+  .strip{background:var(--charcoal);color:var(--ivory);padding:16px 0;overflow:hidden;white-space:nowrap}
+  .strip-track{display:inline-block;animation:scroll 28s linear infinite;font-size:.82rem;letter-spacing:.2em;text-transform:uppercase}
+  .strip-track span{margin:0 32px;opacity:.85}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  .cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px}
+  .cat-card{position:relative;aspect-ratio:3/4;border-radius:var(--radius);overflow:hidden;cursor:pointer;background:#EADFD2}
+  .cat-card img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+  .cat-card:hover img{transform:scale(1.08)}
+  .cat-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(20,17,15,.65),transparent 55%)}
+  .cat-card span{position:absolute;bottom:18px;left:18px;color:#fff;font-family:'Playfair Display',serif;font-size:1.15rem;z-index:2}
+
+  .product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:26px}
+  .p-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column;position:relative}
+  .p-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+  .p-media{position:relative;aspect-ratio:4/5;overflow:hidden;background:#F3EDE5}
+  .p-media img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+  .p-card:hover .p-media img{transform:scale(1.06)}
+  .p-tags{position:absolute;top:12px;left:12px;display:flex;gap:6px;flex-direction:column}
+  .tag{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:var(--charcoal);color:#fff}
+  .tag.new{background:var(--rose-deep)}
+  .tag.sale{background:var(--gold);color:#2B2723}
+  .p-wish{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;transition:.2s}
+  .p-wish:hover{background:#fff;transform:scale(1.08)}
+  .p-wish svg{width:17px;height:17px;stroke:var(--ink);fill:none;stroke-width:1.6}
+  .p-wish.active svg{fill:var(--rose-deep);stroke:var(--rose-deep)}
+  .p-quick{position:absolute;left:12px;right:12px;bottom:12px;opacity:0;transform:translateY(8px);transition:.3s}
+  .p-card:hover .p-quick{opacity:1;transform:translateY(0)}
+  .p-body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .p-body h3{font-size:.98rem;font-family:'Inter',sans-serif;font-weight:600;color:var(--ink)}
+  .p-meta{display:flex;justify-content:space-between;align-items:center;font-size:.82rem;color:var(--muted)}
+  .p-price{font-weight:700;color:var(--charcoal);font-size:1rem}
+  .p-price del{color:var(--muted);font-weight:400;font-size:.85rem;margin-right:6px}
+  .stars{color:var(--gold);font-size:.85rem;letter-spacing:1px}
+  .p-actions{display:flex;gap:8px;margin-top:10px}
+
+  .shop-layout{display:grid;grid-template-columns:260px 1fr;gap:36px;align-items:start}
+  .filters{background:#fff;border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);position:sticky;top:96px}
+  .filter-group{margin-bottom:22px}
+  .filter-group h4{font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:10px;font-family:'Inter',sans-serif;font-weight:700}
+  .filter-group label{display:flex;align-items:center;gap:9px;font-size:.9rem;padding:5px 0;cursor:pointer;color:var(--ink)}
+  .filter-group input[type="checkbox"]{width:16px;height:16px;accent-color:var(--rose-deep)}
+  .search-input{width:100%;padding:12px 16px;border-radius:12px;border:1px solid var(--line);background:#fff;font-size:.9rem;margin-bottom:18px}
+  .search-input:focus{outline:none;border-color:var(--rose-deep)}
+  .shop-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;gap:14px;flex-wrap:wrap}
+  .shop-bar select{padding:9px 14px;border-radius:10px;border:1px solid var(--line);background:#fff;font-size:.85rem}
+
+  .modal-overlay{position:fixed;inset:0;background:rgba(30,27,24,.6);backdrop-filter:blur(6px);z-index:120;display:none;align-items:center;justify-content:center;padding:24px}
+  .modal-overlay.open{display:flex;animation:fade .25s}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  .modal{background:var(--ivory);border-radius:22px;max-width:960px;width:100%;max-height:90vh;overflow:auto;box-shadow:var(--shadow-lg);animation:pop .3s cubic-bezier(.2,.9,.3,1.1);position:relative}
+  @keyframes pop{from{transform:scale(.94);opacity:0}to{transform:scale(1);opacity:1}}
+  .modal-grid{display:grid;grid-template-columns:1fr 1fr}
+  .modal-img{background:#F3EDE5;min-height:480px}
+  .modal-img img{width:100%;height:100%;object-fit:cover}
+  .modal-body{padding:36px}
+  .modal-close{position:absolute;top:18px;right:18px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.95);display:grid;place-items:center;z-index:3}
+  .modal-close:hover{background:#fff;transform:rotate(90deg);transition:.3s}
+  .opt-row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 16px}
+  .opt{padding:8px 16px;border:1.5px solid var(--line);border-radius:10px;font-size:.85rem;background:#fff;transition:.2s}
+  .opt:hover{border-color:var(--muted)}
+  .opt.active{border-color:var(--charcoal);background:var(--charcoal);color:#fff}
+  .info-list{list-style:none;font-size:.85rem;color:var(--muted);margin:14px 0}
+  .info-list li{padding:4px 0;display:flex;gap:8px}
+  .info-list li strong{color:var(--ink);font-weight:600;min-width:90px}
+  .ask-wendy{margin-top:20px;padding:16px;border-radius:14px;background:#F7F1EA;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:.85rem}
+
+  .drawer{position:fixed;top:0;right:0;height:100%;width:420px;max-width:92vw;background:var(--ivory);z-index:130;transform:translateX(100%);transition:transform .35s cubic-bezier(.2,.9,.3,1);box-shadow:-20px 0 60px rgba(0,0,0,.15);display:flex;flex-direction:column}
+  .drawer.open{transform:translateX(0)}
+  .drawer-head{padding:24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+  .drawer-body{flex:1;overflow:auto;padding:20px 24px}
+  .drawer-foot{padding:22px 24px;border-top:1px solid var(--line);background:#fff}
+  .cart-row{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+  .cart-row img{width:70px;height:88px;object-fit:cover;border-radius:10px}
+  .cart-row-info{flex:1;font-size:.85rem}
+  .cart-row-info strong{display:block;font-weight:600;font-size:.9rem;margin-bottom:2px}
+  .qty{display:flex;align-items:center;gap:8px;margin-top:8px}
+  .qty button{width:26px;height:26px;border-radius:8px;border:1px solid var(--line);font-weight:700;background:#fff}
+  .qty button:hover{border-color:var(--charcoal)}
+  .row-total{display:flex;justify-content:space-between;font-size:.9rem;padding:6px 0;color:var(--muted)}
+  .row-total.grand{font-size:1.05rem;font-weight:700;color:var(--charcoal);padding-top:14px;border-top:1px solid var(--line);margin-top:10px}
+
+  /* ============================================================
+     CHAT — original cream/ivory style
+     ============================================================ */
+  .chat-fab{position:fixed;bottom:26px;right:26px;z-index:140;width:62px;height:62px;border-radius:50%;background:var(--charcoal);color:var(--ivory);display:grid;place-items:center;box-shadow:0 12px 30px rgba(30,27,24,.35);transition:transform .25s}
+  .chat-fab:hover{transform:scale(1.08)}
+  .chat-fab svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:1.8}
+  .chat-fab .pulse{position:absolute;inset:0;border-radius:50%;background:var(--rose-deep);opacity:.5;animation:pulse 2.2s ease-out infinite;z-index:-1}
+  @keyframes pulse{0%{transform:scale(1);opacity:.5}100%{transform:scale(1.7);opacity:0}}
+
+  .chat-window{position:fixed;bottom:26px;right:26px;z-index:150;width:420px;max-width:calc(100vw - 32px);height:640px;max-height:calc(100vh - 52px);background:var(--ivory);border-radius:22px;box-shadow:var(--shadow-lg);display:none;flex-direction:column;overflow:hidden;transform-origin:bottom right;animation:chatIn .3s cubic-bezier(.2,.9,.3,1.1)}
+  @keyframes chatIn{from{transform:scale(.9) translateY(20px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
+  .chat-window.open{display:flex}
+
+  .chat-head{background:linear-gradient(135deg,var(--burgundy) 0%,var(--burgundy-deep) 100%);color:var(--ivory);padding:16px 18px;display:flex;align-items:center;gap:12px;position:relative;z-index:200}
+  .chat-avatar{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.18);color:#fff;display:grid;place-items:center;font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;position:relative;border:2px solid rgba(255,255,255,.35)}
+  .chat-avatar::after{content:'';position:absolute;bottom:0;right:0;width:11px;height:11px;border-radius:50%;background:#5CCB7C;border:2px solid var(--burgundy)}
+  .chat-head-info{flex:1;min-width:0}
+  .chat-head-info strong{font-size:.98rem;display:block;font-family:'Playfair Display',serif;letter-spacing:.02em}
+  .chat-head-info small{font-size:.75rem;opacity:.85;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .chat-head-actions{display:flex;gap:4px}
+  .chat-head-actions button{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:#fff;opacity:.85;transition:.2s;position:relative}
+  .chat-head-actions button:hover{background:rgba(255,255,255,.15);opacity:1}
+  .chat-head-actions svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.8}
+
+  /* Language badge on globe button */
+  .lang-badge{
+    position:absolute;bottom:-4px;right:-4px;background:var(--gold);color:var(--burgundy);
+    font-size:.55rem;font-weight:800;padding:1px 4px;border-radius:6px;letter-spacing:.04em;
+    border:1.5px solid var(--burgundy);line-height:1;
+  }
+
+  .chat-body{flex:1;overflow-y:auto;padding:18px;background:var(--cream);display:flex;flex-direction:column;gap:14px;scroll-behavior:smooth}
+  .chat-body::-webkit-scrollbar{width:6px}
+  .chat-body::-webkit-scrollbar-thumb{background:#D9D0C6;border-radius:3px}
+
+  .msg{display:flex;gap:9px;max-width:88%;animation:msgIn .25s}
+  @keyframes msgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+  .msg.user{align-self:flex-end;flex-direction:row-reverse}
+  .msg .bubble{padding:11px 15px;border-radius:16px;font-size:.89rem;line-height:1.5;white-space:pre-wrap;word-wrap:break-word}
+  .msg.assistant .bubble{background:#fff;border:1px solid var(--line);border-top-left-radius:4px;box-shadow:0 2px 8px rgba(30,27,24,.04);position:relative}
+  .msg.user .bubble{background:var(--burgundy);color:#fff;border-top-right-radius:4px}
+  .msg .mini-avatar{width:28px;height:28px;border-radius:50%;background:var(--burgundy);color:#fff;display:grid;place-items:center;font-size:.75rem;font-weight:700;flex-shrink:0;font-family:'Playfair Display',serif}
+  .bubble b{font-weight:700}
+
+  /* Speaker icon on assistant messages */
+  .speak-btn{
+    position:absolute;bottom:6px;right:8px;
+    width:22px;height:22px;border-radius:50%;
+    display:grid;place-items:center;background:transparent;
+    opacity:.55;transition:.2s;
+  }
+  .speak-btn:hover{opacity:1;background:#F7F1EA}
+  .speak-btn svg{width:13px;height:13px;stroke:var(--burgundy);fill:none;stroke-width:2}
+  .speak-btn.speaking{opacity:1;background:var(--burgundy);animation:speakPulse 1s ease-in-out infinite}
+  .speak-btn.speaking svg{stroke:#fff}
+  @keyframes speakPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+
+  .typing .bubble{padding:14px 18px;display:flex;gap:5px;align-items:center}
+  .typing .dot{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:ty 1.2s infinite}
+  .typing .dot:nth-child(2){animation-delay:.2s}
+  .typing .dot:nth-child(3){animation-delay:.4s}
+  @keyframes ty{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-5px);opacity:1}}
+
+  .quick-replies{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;align-items:flex-start}
+  .qr{padding:8px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:.78rem;font-weight:500;transition:.2s;display:inline-flex;gap:6px;align-items:center;white-space:nowrap;box-shadow:0 1px 3px rgba(30,27,24,.04)}
+  .qr:hover{border-color:var(--burgundy);background:#FDF6F7;color:var(--burgundy)}
+
+  .chat-product{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px;display:flex;gap:11px;margin-top:8px}
+  .chat-product img{width:64px;height:80px;object-fit:cover;border-radius:9px}
+  .chat-product-info{flex:1;font-size:.82rem;display:flex;flex-direction:column;gap:3px}
+  .chat-product-info strong{font-size:.87rem;font-weight:600}
+  .chat-product-info .price{font-weight:700;color:var(--charcoal)}
+  .chat-product-info .stars{font-size:.78rem}
+  .chat-product-actions{display:flex;gap:6px;margin-top:6px}
+  .chat-product-actions button{font-size:.72rem;padding:5px 11px;border-radius:8px;font-weight:600}
+  .chat-product-actions .view{background:var(--charcoal);color:#fff}
+  .chat-product-actions .add{background:var(--burgundy);color:#fff}
+
+  .chat-attachment{background:#FDF6F7;border-radius:12px;padding:14px;font-size:.82rem;margin-top:6px;border-left:3px solid var(--burgundy)}
+  .chat-attachment h5{font-family:'Playfair Display',serif;font-size:.95rem;margin-bottom:6px;color:var(--burgundy)}
+  .chat-attachment .row{display:flex;justify-content:space-between;padding:3px 0;color:var(--muted)}
+  .chat-attachment .row strong{color:var(--ink)}
+  table.size-table{width:100%;border-collapse:collapse;font-size:.75rem;margin-top:6px}
+  table.size-table th,table.size-table td{border:1px solid var(--line);padding:5px 6px;text-align:left}
+  table.size-table th{background:var(--cream);font-weight:600;font-size:.72rem}
+
+  .order-timeline{padding:16px 8px;margin-top:6px}
+  .ot-step{display:flex;gap:12px;position:relative;padding-bottom:22px}
+  .ot-step:last-child{padding-bottom:0}
+  .ot-step::before{content:'';position:absolute;left:11px;top:22px;bottom:0;width:2px;background:var(--line);z-index:1}
+  .ot-step.done::before{background:#2E7D32}
+  .ot-step.current::before{background:linear-gradient(to bottom,#2E7D32 0%,#2E7D32 50%,var(--line) 50%,var(--line) 100%)}
+  .ot-step:last-child::before{display:none}
+  .ot-marker{width:24px;height:24px;border-radius:50%;flex-shrink:0;z-index:2;position:relative;background:#fff;border:2px solid var(--line);display:grid;place-items:center}
+  .ot-step.done .ot-marker{background:#2E7D32;border-color:#2E7D32}
+  .ot-step.done .ot-marker::after{content:'✓';color:#fff;font-size:.7rem;font-weight:700;line-height:1}
+  .ot-step.current .ot-marker{background:#fff;border-color:var(--burgundy);border-width:3px}
+  .ot-step.current .ot-marker::after{content:'';width:8px;height:8px;border-radius:50%;background:var(--burgundy)}
+  .ot-text{flex:1;padding-top:1px}
+  .ot-text strong{display:block;font-size:.86rem;font-weight:600;color:var(--ink)}
+  .ot-step.current .ot-text strong{color:var(--burgundy)}
+  .ot-step.pending .ot-text strong{color:var(--muted);font-weight:500}
+  .ot-text small{font-size:.72rem;color:var(--muted);display:block;margin-top:2px}
+
+  .chat-input{padding:14px 16px;background:#fff;border-top:1px solid var(--line);display:flex;gap:8px;align-items:flex-end;position:relative}
+  .chat-input textarea{flex:1;border:1px solid var(--line);border-radius:14px;padding:11px 14px;font-size:.88rem;resize:none;max-height:110px;min-height:42px;font-family:inherit;background:var(--cream);transition:.2s}
+  .chat-input textarea:focus{outline:none;border-color:var(--burgundy);background:#fff}
+  .mic-btn{width:44px;height:44px;border-radius:50%;background:var(--cream);color:var(--burgundy);display:grid;place-items:center;flex-shrink:0;transition:.2s;border:1px solid var(--line);position:relative}
+  .mic-btn:hover{background:#FDF6F7;border-color:var(--burgundy)}
+  .mic-btn.recording{background:var(--burgundy);color:#fff;animation:micPulse 1.2s ease-in-out infinite}
+  @keyframes micPulse{0%,100%{box-shadow:0 0 0 0 rgba(110,31,46,.5)}50%{box-shadow:0 0 0 10px rgba(110,31,46,0)}}
+  .mic-btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2}
+  .mic-btn.listening::before{
+    content:'';position:absolute;inset:-4px;border-radius:50%;
+    border:2px solid var(--burgundy);opacity:.4;animation:ring 1.5s ease-out infinite;
+  }
+  @keyframes ring{0%{transform:scale(1);opacity:.5}100%{transform:scale(1.4);opacity:0}}
+  .chat-send{width:44px;height:44px;border-radius:50%;background:var(--burgundy);color:#fff;display:grid;place-items:center;flex-shrink:0;transition:.2s}
+  .chat-send:hover{background:var(--burgundy-deep)}
+  .chat-send svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2}
+
+  /* ============================================================
+     LANGUAGE PICKER — high-contrast fix
+     ============================================================ */
+  .lang-modal{
+    position:absolute;
+    top:70px;
+    right:12px;
+    background:#FFFFFF !important;
+    border-radius:14px;
+    box-shadow:0 16px 48px rgba(0,0,0,.35), 0 0 0 1px rgba(0,0,0,.08);
+    z-index:9999;
+    padding:8px;
+    display:none;
+    width:260px;
+    max-height:420px;
+    overflow-y:auto;
+    border:2px solid var(--burgundy);
+    isolation:isolate;
+  }
+  .lang-modal.open{display:block;animation:pop .22s cubic-bezier(.2,.9,.3,1.1)}
+  .lang-modal h6{
+    font-family:'Playfair Display',serif;
+    font-size:.88rem;
+    padding:10px 14px;
+    color:var(--burgundy);
+    background:#FDF6F7;
+    border-radius:8px;
+    margin-bottom:6px;
+    border-bottom:none;
+    font-weight:600;
+    letter-spacing:.02em;
+  }
+  .lang-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:11px 14px;
+    border-radius:8px;
+    font-size:.88rem;
+    cursor:pointer;
+    transition:.15s;
+    gap:10px;
+    color:var(--charcoal);
+    background:transparent;
+    font-weight:500;
+    border:1px solid transparent;
+  }
+  .lang-item:hover{
+    background:#FDF6F7;
+    border-color:var(--rose);
+    transform:translateX(2px);
+  }
+  .lang-item.active{
+    background:var(--burgundy);
+    color:#FFFFFF;
+    border-color:var(--burgundy);
+    box-shadow:0 3px 10px rgba(110,31,46,.25);
+  }
+  .lang-item .flag{font-size:1.15rem;line-height:1;flex-shrink:0}
+  .lang-item .name{flex:1;font-weight:600;letter-spacing:.01em}
+  .lang-item .code{
+    font-size:.68rem;
+    opacity:.7;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    font-weight:800;
+    padding:3px 7px;
+    background:rgba(110,31,46,.08);
+    border-radius:5px;
+    color:var(--burgundy);
+  }
+  .lang-item.active .code{
+    opacity:1;
+    background:rgba(255,255,255,.2);
+    color:#FFFFFF;
+  }
+
+  /* Voice feedback banner */
+  .voice-banner{
+    position:absolute;bottom:78px;left:50%;transform:translateX(-50%);
+    background:var(--burgundy);color:#fff;
+    padding:10px 20px;border-radius:999px;font-size:.82rem;
+    display:flex;align-items:center;gap:10px;
+    box-shadow:0 8px 24px rgba(110,31,46,.35);
+    opacity:0;pointer-events:none;transition:.3s;z-index:155;white-space:nowrap;
+  }
+  .voice-banner.show{opacity:1;transform:translateX(-50%) translateY(-6px)}
+  .voice-banner .wave{
+    display:inline-flex;gap:2px;align-items:flex-end;height:14px;
+  }
+  .voice-banner .wave span{
+    width:2px;background:#fff;border-radius:2px;animation:wave .8s ease-in-out infinite;
+  }
+  .voice-banner .wave span:nth-child(1){height:6px;animation-delay:0s}
+  .voice-banner .wave span:nth-child(2){height:12px;animation-delay:.15s}
+  .voice-banner .wave span:nth-child(3){height:8px;animation-delay:.3s}
+  .voice-banner .wave span:nth-child(4){height:14px;animation-delay:.45s}
+  @keyframes wave{0%,100%{transform:scaleY(.4)}50%{transform:scaleY(1.2)}}
+
+  /* Admin */
+  .admin-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-bottom:34px}
+  .stat{background:#fff;border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);border-left:4px solid var(--rose-deep)}
+  .stat small{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:600}
+  .stat strong{display:block;font-family:'Playfair Display',serif;font-size:2rem;color:var(--charcoal);margin-top:6px}
+  .stat .sub{font-size:.78rem;color:var(--muted);margin-top:4px}
+  .bar{height:8px;background:#F0EAE2;border-radius:4px;overflow:hidden;margin-top:10px}
+  .bar span{display:block;height:100%;background:var(--rose-deep);border-radius:4px}
+
+  .tickets{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  .tickets-head{padding:20px 24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+  .ticket{padding:16px 24px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:110px 1fr 130px 100px 100px 130px;gap:14px;align-items:center;font-size:.85rem;transition:background .2s;cursor:pointer;user-select:none}
+  .ticket:hover{background:#FBF7F1}
+  .ticket .tid{font-weight:700;color:var(--rose-deep);font-size:.8rem}
+  .ticket .issue{color:var(--ink)}
+  .ticket .small{font-size:.78rem;color:var(--muted)}
+  .badge{display:inline-block;padding:4px 10px;border-radius:999px;font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+  .badge.new{background:#E8F4FF;color:#1877C9}
+  .badge.waiting{background:#FFF4E0;color:#B07300}
+  .badge.progress{background:#EDE9FF;color:#5A46C9}
+  .badge.escalated{background:#FFE9E9;color:#C13B3B}
+  .badge.resolved{background:#E3F6E8;color:#1E8A44}
+
+  footer{background:var(--charcoal);color:#C9C1B8;padding:64px 0 30px;font-size:.85rem}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+  footer h4{color:var(--ivory);font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px;font-family:'Inter',sans-serif;font-weight:700}
+  footer ul{list-style:none}
+  footer li{padding:5px 0;transition:.2s;cursor:pointer}
+  footer li:hover{color:var(--ivory)}
+  .foot-logo{font-family:'Playfair Display',serif;color:var(--ivory);font-size:1.5rem;margin-bottom:14px}
+  .foot-logo span{color:var(--rose)}
+  .foot-bottom{border-top:1px solid #3A342E;padding-top:24px;display:flex;justify-content:space-between;font-size:.78rem;flex-wrap:wrap;gap:12px}
+  .socials{display:flex;gap:12px}
+  .socials a{width:36px;height:36px;border-radius:50%;background:#2B2723;display:grid;place-items:center;transition:.2s}
+  .socials a:hover{background:var(--rose-deep)}
+  .socials svg{width:16px;height:16px;stroke:#C9C1B8;fill:none;stroke-width:1.6}
+
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+  .about-img{border-radius:var(--radius);aspect-ratio:4/5;overflow:hidden;box-shadow:var(--shadow-lg)}
+  .about-img img{width:100%;height:100%;object-fit:cover}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+  .contact-card{background:#fff;border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+  .form-row{margin-bottom:16px}
+  .form-row label{display:block;font-size:.82rem;font-weight:600;margin-bottom:6px;color:var(--ink)}
+  .form-row input,.form-row textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--cream);font-size:.9rem}
+  .form-row input:focus,.form-row textarea:focus{outline:none;border-color:var(--rose-deep);background:#fff}
+
+  .toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--burgundy);color:var(--ivory);padding:13px 24px;border-radius:999px;font-size:.88rem;z-index:200;box-shadow:var(--shadow-lg);opacity:0;transition:.35s;display:flex;align-items:center;gap:10px}
+  .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+
+  .auth-modal{position:fixed;inset:0;background:rgba(30,27,24,.65);backdrop-filter:blur(8px);z-index:180;display:none;align-items:center;justify-content:center;padding:24px}
+  .auth-modal.open{display:flex;animation:fade .25s}
+  .auth-box{background:var(--ivory);border-radius:24px;width:100%;max-width:440px;padding:40px;box-shadow:var(--shadow-lg);animation:pop .3s cubic-bezier(.2,.9,.3,1.1);position:relative}
+  .auth-box h2{font-size:1.7rem;margin-bottom:6px}
+  .auth-box p.sub{color:var(--muted);font-size:.9rem;margin-bottom:26px}
+  .auth-tabs{display:flex;gap:6px;background:var(--cream);border-radius:999px;padding:4px;margin-bottom:24px}
+  .auth-tabs button{flex:1;padding:10px;border-radius:999px;font-size:.85rem;font-weight:600;transition:.2s;color:var(--muted)}
+  .auth-tabs button.active{background:#fff;color:var(--charcoal);box-shadow:0 2px 8px rgba(0,0,0,.06)}
+  .auth-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--cream)}
+  .auth-close:hover{background:var(--line)}
+  .auth-error{background:#FFE9E9;color:#C13B3B;font-size:.82rem;padding:10px 14px;border-radius:10px;margin-bottom:14px;display:none}
+  .auth-error.show{display:block}
+  .auth-hint{font-size:.75rem;color:var(--muted);margin-top:14px;text-align:center;background:var(--cream);padding:10px;border-radius:10px}
+
+  .view-page{display:none}
+  .view-page.active{display:block}
+  .page-head{padding:60px 0 30px;border-bottom:1px solid var(--line);margin-bottom:40px}
+  .page-head h1{font-size:2.4rem}
+  .page-head p{color:var(--muted);margin-top:8px}
+
+  .account-grid{display:grid;grid-template-columns:280px 1fr;gap:36px;align-items:start}
+  .account-side{background:#fff;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);position:sticky;top:96px}
+  .account-side .avatar-lg{width:70px;height:70px;border-radius:50%;background:var(--rose-deep);color:#fff;display:grid;place-items:center;font-size:1.6rem;font-weight:700;margin:0 auto 12px}
+  .account-side h3{text-align:center;font-family:'Playfair Display',serif;font-size:1.1rem}
+  .account-side .email{text-align:center;font-size:.82rem;color:var(--muted);margin-bottom:18px}
+  .account-menu{list-style:none}
+  .account-menu li{padding:11px 14px;border-radius:10px;font-size:.88rem;cursor:pointer;transition:.2s;display:flex;gap:10px;align-items:center;user-select:none}
+  .account-menu li:hover{background:var(--cream)}
+  .account-menu li.active{background:var(--burgundy);color:#fff}
+  .account-panel{background:#fff;border-radius:var(--radius);padding:32px;box-shadow:var(--shadow);min-height:400px}
+  .order-card{padding:20px;border:1px solid var(--line);border-radius:14px;margin-bottom:14px}
+  .order-card .head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+  .order-card .oid{font-weight:700;color:var(--rose-deep)}
+  .order-card .items{font-size:.85rem;color:var(--muted)}
+  .order-card .items li{padding:3px 0}
+
+  @media (max-width:960px){
+    .hero-inner{grid-template-columns:1fr;gap:40px}
+    .hero-visual{aspect-ratio:16/12;order:-1}
+    .shop-layout{grid-template-columns:1fr}
+    .filters{position:static}
+    .modal-grid{grid-template-columns:1fr}
+    .modal-img{min-height:300px}
+    .about-grid,.contact-grid{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr 1fr;gap:30px}
+    .ticket{grid-template-columns:1fr;gap:6px}
+    .account-grid{grid-template-columns:1fr}
+    .account-side{position:static}
+  }
+  @media (max-width:640px){
+    section{padding:56px 0}
+    .nav-links{display:none}
+    .hamburger{display:grid}
+    .chat-window{width:100vw;height:100vh;max-width:100vw;max-height:100vh;bottom:0;right:0;border-radius:0}
+    .drawer{width:100vw;max-width:100vw}
+    .hero-cta .btn{flex:1}
+    .chat-fab{bottom:18px;right:18px;width:56px;height:56px}
+    .user-badge span.name{display:none}
+  }
+  .nav-links.open{display:flex;position:absolute;top:76px;left:0;right:0;background:var(--ivory);flex-direction:column;padding:20px 24px;gap:16px;border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="logo" onclick="showView('home')" style="cursor:pointer">Wendy's <span>& Co.</span></div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" onclick="showView('home')">Home</a>
+      <a href="#shop" onclick="showView('shop')">Shop</a>
+      <a href="#categories" onclick="showView('home');setTimeout(()=>document.getElementById('categories').scrollIntoView(),50)">Categories</a>
+      <a href="#about" onclick="showView('home');setTimeout(()=>document.getElementById('about').scrollIntoView(),50)">About</a>
+      <a href="#contact" onclick="showView('home');setTimeout(()=>document.getElementById('contact').scrollIntoView(),50)">Contact</a>
+      <a href="#" onclick="openChat();return false;">Ask Bella</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" onclick="showView('shop');setTimeout(()=>document.getElementById('searchTop').focus(),100)" aria-label="Search">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3-3"/></svg>
+      </button>
+      <button class="icon-btn" onclick="openCart()" aria-label="Cart">
+        <svg viewBox="0 0 24 24"><path d="M6 7h12l-1 12H7L6 7z"/><path d="M9 7a3 3 0 016 0"/></svg>
+        <span class="cart-count" id="cartCount" style="display:none">0</span>
+      </button>
+      <button class="user-badge" id="userBadge" onclick="onUserBadgeClick()">
+        <div class="user-avatar" id="userAvatar">?</div>
+        <span class="name" id="userName">Sign in</span>
+      </button>
+      <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="view-home" class="view-page active">
+  <section class="hero" id="home">
+    <div class="wrap hero-inner">
+      <div>
+        <div class="eyebrow">New Season · Autumn 2026</div>
+        <h1>Style Made<br>For You.</h1>
+        <p class="lede">Discover thoughtfully curated fashion designed to help you look confident, feel comfortable and express your unique style.</p>
+        <div class="hero-cta">
+          <button class="btn btn-primary" onclick="showView('shop')">Shop Collection</button>
+          <button class="btn btn-outline" onclick="openChat(true)">✨ Ask Bella</button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&h=1100&q=80" alt="Wendy's & Co. fashion">
+        <div class="hero-badge">
+          <small>Bestseller</small>
+          <strong>Classic Satin Midi</strong>
+          <span style="color:var(--muted)">From R899</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="strip-track">
+      <span>✦ Free delivery over R850</span><span>✦ 14-day easy returns</span>
+      <span>✦ Nationwide delivery in SA</span><span>✦ Curated for the modern woman</span>
+      <span>✦ Free delivery over R850</span><span>✦ 14-day easy returns</span>
+      <span>✦ Nationwide delivery in SA</span><span>✦ Curated for the modern woman</span>
+    </div>
+  </div>
+
+  <section id="categories">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Browse</div>
+        <h2>Shop by Category</h2>
+        <p style="color:var(--muted);max-width:560px">From everyday essentials to statement pieces — explore our curated edits.</p>
+      </div>
+      <div class="cat-grid" id="catGrid"></div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about-grid">
+      <div>
+        <div class="eyebrow">Our Story</div>
+        <h2>Fashion that feels personal.</h2>
+        <p style="color:var(--muted);margin:18px 0">Wendy's & Co. was created to make modern fashion feel accessible, personal and empowering. We curate clothing designed for women who want to express themselves confidently through style.</p>
+        <p style="color:var(--muted);margin-bottom:22px">Based in Cape Town, we blend global trends with local sensibility — bringing you pieces that feel considered, comfortable and effortlessly elegant.</p>
+        <div style="display:flex;gap:34px;margin-top:26px">
+          <div><div style="font-family:'Playfair Display',serif;font-size:1.9rem;color:var(--charcoal)">12k+</div><small style="color:var(--muted);font-size:.8rem">Happy customers</small></div>
+          <div><div style="font-family:'Playfair Display',serif;font-size:1.9rem;color:var(--charcoal)">4.8★</div><small style="color:var(--muted);font-size:.8rem">Average rating</small></div>
+          <div><div style="font-family:'Playfair Display',serif;font-size:1.9rem;color:var(--charcoal)">24/7</div><small style="color:var(--muted);font-size:.8rem">Bella AI support</small></div>
+        </div>
+      </div>
+      <div class="about-img">
+        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&h=1000&q=80" alt="About Wendy's & Co.">
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="background:var(--ivory)">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Get in touch</div>
+        <h2>We'd love to hear from you.</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Send us a message</h3>
+          <p style="color:var(--muted);font-size:.88rem;margin-bottom:20px">Our team responds within 2 hours during trading hours. For instant help, chat with Bella.</p>
+          <form onsubmit="submitContact(event)">
+            <div class="form-row"><label>Full name</label><input required placeholder="Your name"></div>
+            <div class="form-row"><label>Email address</label><input required type="email" placeholder="you@example.com"></div>
+            <div class="form-row"><label>Message</label><textarea rows="4" required placeholder="How can we help?"></textarea></div>
+            <button class="btn btn-primary btn-block" type="submit">Send message</button>
+          </form>
+        </div>
+        <div class="contact-card">
+          <h3>Contact details</h3>
+          <ul class="info-list" style="margin:18px 0">
+            <li><strong>Email</strong> hello@wendysandco.co.za</li>
+            <li><strong>WhatsApp</strong> 067 123 4567</li>
+            <li><strong>Studio</strong> 27 Loop Street, CBD, Cape Town 8001</li>
+            <li><strong>Hours</strong> Mon–Fri 9:00–17:30 · Sat 9:00–15:00 · Sun closed</li>
+          </ul>
+          <div style="background:#F7F1EA;border-radius:14px;padding:18px;margin-top:10px">
+            <strong style="display:block;font-family:'Playfair Display',serif;font-size:1.05rem;margin-bottom:6px">Need help right now?</strong>
+            <p style="font-size:.85rem;color:var(--muted);margin-bottom:12px">Bella AI is online 24/7 — for orders, sizing, returns and everything in between.</p>
+            <button class="btn btn-rose btn-sm" onclick="openChat(true)">✨ Chat with Bella</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="view-shop" class="view-page">
+  <div class="wrap" style="padding-top:50px">
+    <div class="section-head">
+      <div class="eyebrow">The Collection</div>
+      <h1 style="font-size:2.4rem">Shop All Pieces</h1>
+    </div>
+    <div class="shop-layout">
+      <aside class="filters">
+        <input class="search-input" id="searchTop" type="text" placeholder="Search products…" oninput="renderShop()" />
+        <div class="filter-group"><h4>Category</h4><div id="filterCats"></div></div>
+        <div class="filter-group"><h4>Size</h4><div id="filterSizes"></div></div>
+        <div class="filter-group"><h4>Colour</h4><div id="filterColours"></div></div>
+        <div class="filter-group">
+          <h4>Price</h4>
+          <label><input type="checkbox" data-price="0-600" onchange="renderShop()"> Under R600</label>
+          <label><input type="checkbox" data-price="600-1000" onchange="renderShop()"> R600 – R1,000</label>
+          <label><input type="checkbox" data-price="1000-99999" onchange="renderShop()"> Over R1,000</label>
+        </div>
+        <div class="filter-group"><h4>Availability</h4><label><input type="checkbox" id="inStockOnly" onchange="renderShop()"> In stock only</label></div>
+        <button class="btn btn-ghost btn-sm btn-block" onclick="resetFilters()">Reset filters</button>
+      </aside>
+      <div>
+        <div class="shop-bar">
+          <span id="resultCount" style="font-size:.88rem;color:var(--muted)"></span>
+          <select id="sortBy" onchange="renderShop()">
+            <option value="popular">Sort: Popularity</option>
+            <option value="new">Sort: Newest</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+            <option value="rating">Top Rated</option>
+          </select>
+        </div>
+        <div class="product-grid" id="shopGrid"></div>
+      </div>
+    </div>
+  </div>
+  <div style="height:60px"></div>
+</div>
+
+<div id="view-account" class="view-page">
+  <div class="wrap">
+    <div class="page-head">
+      <h1>My Account</h1>
+      <p id="accountSubtitle">Manage your profile, orders and support tickets.</p>
+    </div>
+    <div class="account-grid">
+      <aside class="account-side">
+        <div class="avatar-lg" id="accountAvatar">?</div>
+        <h3 id="accountName">—</h3>
+        <div class="email" id="accountEmail">—</div>
+        <ul class="account-menu">
+          <li class="active" data-tab="profile" onclick="switchAccountTab('profile')">👤 Profile</li>
+          <li data-tab="orders" onclick="switchAccountTab('orders')">📦 My Orders</li>
+          <li data-tab="tickets" onclick="switchAccountTab('tickets')">🎫 Support Tickets</li>
+          <li data-tab="wishlist" onclick="switchAccountTab('wishlist')">❤️ Wishlist</li>
+          <li onclick="logout()" style="color:#C13B3B">↩ Sign out</li>
+        </ul>
+      </aside>
+      <div class="account-panel" id="accountPanel"></div>
+    </div>
+  </div>
+  <div style="height:60px"></div>
+</div>
+
+<div id="view-admin" class="view-page">
+  <div class="wrap">
+    <div class="page-head" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px">
+      <div>
+        <div class="eyebrow">Support Console</div>
+        <h1>Admin Dashboard</h1>
+        <p>Live view of users, conversations, escalations and tickets.</p>
+      </div>
+      <button class="btn btn-ghost btn-sm" onclick="logout()">Sign out</button>
+    </div>
+
+    <div class="admin-grid" id="adminStats"></div>
+
+    <div style="margin-bottom:34px">
+      <h3 style="margin-bottom:14px;font-family:'Playfair Display',serif;font-size:1.3rem">Registered Users</h3>
+      <div class="tickets">
+        <div class="tickets-head"><h4 style="font-family:'Playfair Display',serif">User Accounts</h4><span class="badge new" id="userCount">0 users</span></div>
+        <div id="userList"></div>
+      </div>
+    </div>
+
+    <div>
+      <h3 style="margin-bottom:14px;font-family:'Playfair Display',serif;font-size:1.3rem">Support Tickets</h3>
+      <div class="tickets">
+        <div class="tickets-head">
+          <h4 style="font-family:'Playfair Display',serif">Active Tickets</h4>
+          <span class="badge new" id="ticketCount">0 open</span>
+        </div>
+        <div id="ticketList"></div>
+      </div>
+    </div>
+  </div>
+  <div style="height:60px"></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">Wendy's <span>& Co.</span></div>
+        <p style="max-width:320px;line-height:1.7">Modern fashion, thoughtfully curated. Made for women who want to feel confident, comfortable and beautifully themselves.</p>
+        <div class="socials" style="margin-top:18px">
+          <a href="#"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="#C9C1B8"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24"><path d="M22 5.9c-.7.3-1.5.5-2.3.6.8-.5 1.5-1.3 1.8-2.3-.8.5-1.7.8-2.6 1A4.1 4.1 0 0012 8.9c0 .3 0 .6.1.9A11.7 11.7 0 013.6 5.3a4.1 4.1 0 001.3 5.5c-.7 0-1.3-.2-1.9-.5v.1c0 2 1.4 3.6 3.3 4-.6.2-1.2.2-1.9.1a4.1 4.1 0 003.8 2.9A8.3 8.3 0 012 19.4a11.6 11.6 0 006.3 1.8c7.5 0 11.6-6.2 11.6-11.6v-.5c.8-.6 1.5-1.3 2.1-2.2z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="#C9C1B8"/></svg></a>
+        </div>
+      </div>
+      <div><h4>Shop</h4><ul><li onclick="filterCategory('New Arrivals')">New Arrivals</li><li onclick="filterCategory('Dresses')">Dresses</li><li onclick="filterCategory('Tops')">Tops</li><li onclick="filterCategory('Bottoms')">Bottoms</li></ul></div>
+      <div><h4>Customer Care</h4><ul><li onclick="openChat(true,'How much is delivery?')">Delivery</li><li onclick="openChat(true,'I want to return my dress')">Returns</li><li onclick="openChat(true,'Help me choose a size')">Size Guide</li><li onclick="openChat(true)">FAQs</li></ul></div>
+      <div><h4>Company</h4><ul><li>About Us</li><li>Careers</li><li>Privacy Policy</li><li>Terms & Conditions</li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Wendy's & Co. All rights reserved.</span>
+      <span>Designed with care in Cape Town.</span>
+    </div>
+  </div>
+</footer>
+
+<button class="chat-fab" id="chatFab" onclick="openChat()" aria-label="Chat with Bella">
+  <span class="pulse"></span>
+  <svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 01-8 8H7l-4 3 1-5a8 8 0 1117-6z"/></svg>
+</button>
+
+<div class="chat-window" id="chatWindow">
+  <div class="chat-head">
+    <div class="chat-avatar">B</div>
+    <div class="chat-head-info">
+      <strong>Bella AI</strong>
+      <small id="chatSubtitle">Personal Wendy's & Co. assistant · Online</small>
+    </div>
+    <div class="chat-head-actions">
+      <button onclick="toggleLangPicker(event)" title="Language / Taal / Ulimi / Lugha" id="langBtn" aria-label="Choose language">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg>
+        <span class="lang-badge" id="langBadge">EN</span>
+      </button>
+      <button onclick="toggleSpeaker()" title="Voice replies on/off" id="speakerBtn" aria-label="Toggle voice">
+        <svg viewBox="0 0 24 24" id="speakerIcon"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 8.5a4 4 0 010 7"/></svg>
+      </button>
+      <button onclick="startNewChat()" title="New conversation"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+      <button onclick="closeChat()" title="Minimize"><svg viewBox="0 0 24 24"><path d="M6 12h12"/></svg></button>
+    </div>
+    <div class="lang-modal" id="langModal">
+      <h6>Choose your language</h6>
+      <div id="langList"></div>
+    </div>
+  </div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="voice-banner" id="voiceBanner">
+    <span class="wave"><span></span><span></span><span></span><span></span></span>
+    <span id="voiceBannerText">Listening…</span>
+  </div>
+  <div class="chat-input">
+    <button class="mic-btn" id="micBtn" onclick="toggleMic()" aria-label="Voice input" title="Speak to Bella">
+      <svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0014 0"/><path d="M12 18v3"/></svg>
+    </button>
+    <textarea id="chatInput" rows="1" placeholder="Ask Bella anything…" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChat()}" oninput="this.style.height='auto';this.style.height=Math.min(this.scrollHeight,110)+'px'"></textarea>
+    <button class="chat-send" onclick="sendChat()" aria-label="Send"><svg viewBox="0 0 24 24"><path d="M5 12l14-7-7 14-2-5-5-2z"/></svg></button>
+  </div>
+</div>
+
+<div class="drawer" id="cartDrawer">
+  <div class="drawer-head">
+    <h3>Your Cart</h3>
+    <button class="icon-btn" onclick="closeCart()" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="drawer-body" id="cartBody"></div>
+  <div class="drawer-foot" id="cartFoot"></div>
+</div>
+
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal"><button class="modal-close" onclick="closeModal()" aria-label="Close"><svg viewBox="0 0 24 24" width="18" height="18" stroke="#1E1B18" stroke-width="2" fill="none"><path d="M6 6l12 12M18 6L6 18"/></svg></button><div class="modal-grid" id="modalContent"></div></div>
+</div>
+
+<div class="auth-modal" id="authModal" onclick="if(event.target===this)closeAuth()">
+  <div class="auth-box">
+    <button class="auth-close" onclick="closeAuth()"><svg viewBox="0 0 24 24" width="16" height="16" stroke="#1E1B18" stroke-width="2" fill="none"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <h2 id="authTitle">Welcome back</h2>
+    <p class="sub" id="authSubtitle">Sign in to your Wendy's & Co. account.</p>
+    <div class="auth-tabs">
+      <button id="tabLogin" class="active" onclick="switchAuthTab('login')">Sign In</button>
+      <button id="tabRegister" onclick="switchAuthTab('register')">Register</button>
+    </div>
+    <div class="auth-error" id="authError"></div>
+    <form id="authForm" onsubmit="submitAuth(event)">
+      <div class="form-row" id="nameRow" style="display:none">
+        <label>Full name</label>
+        <input id="authName" placeholder="Your name" autocomplete="name">
+      </div>
+      <div class="form-row">
+        <label>Email address</label>
+        <input id="authEmail" type="email" required placeholder="you@example.com" autocomplete="email">
+      </div>
+      <div class="form-row">
+        <label>Password</label>
+        <input id="authPassword" type="password" required placeholder="••••••••" autocomplete="current-password">
+      </div>
+      <button class="btn btn-primary btn-block" type="submit" id="authSubmit">Sign In</button>
+    </form>
+    <div class="auth-hint">
+      <strong>Demo credentials</strong><br>
+      Admin: <code>admin@wendys.co.za</code> / <code>admin123</code><br>
+      Or register a new user account.
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+   DATA
+   ============================================================ */
+const IMG = (s,w=800,h=1000)=>`https://images.unsplash.com/${s}?auto=format&fit=crop&w=${w}&h=${h}&q=80`;
+
+const PRODUCTS = [
+  {id:'WC-DR-001',name:'Classic Satin Midi Dress',category:'Dresses',price:899,description:'A timeless satin midi with a subtle sheen, bias-cut for an elegant drape.',sizes:['XS','S','M','L','XL'],colours:['Black','Burgundy','Champagne'],material:'100% Polyester Satin',care:'Hand wash cold. Do not bleach.',stock:'In Stock',rating:4.8,image:IMG('photo-1595777457583-95e059d581b8'),popularity:98},
+  {id:'WC-DR-002',name:'Floral Wrap Sundress',category:'Dresses',price:649,description:'A breezy wrap dress with a delicate floral print.',sizes:['XS','S','M','L'],colours:['Rose Print','Sage Print'],material:'Viscose Blend',care:'Machine wash cold.',stock:'In Stock',rating:4.6,image:IMG('photo-1572804013309-59a88b7e92f1'),popularity:87,isNew:true},
+  {id:'WC-DR-003',name:'Little Black Bodycon Dress',category:'Dresses',price:749,description:'A sleek bodycon silhouette in a stretch crepe.',sizes:['XS','S','M','L','XL'],colours:['Black'],material:'92% Polyester, 8% Elastane',care:'Machine wash cold.',stock:'Low Stock',rating:4.7,image:IMG('photo-1539008835657-9e8e9680c956'),popularity:91},
+  {id:'WC-DR-004',name:'Linen Shirt Dress',category:'Dresses',price:799,salePrice:599,description:'Relaxed linen shirt dress with belt.',sizes:['S','M','L','XL'],colours:['White','Sand','Sky'],material:'55% Linen, 45% Cotton',care:'Machine wash cold.',stock:'In Stock',rating:4.5,image:IMG('photo-1595777457583-95e059d581b8'),popularity:78,onSale:true},
+  {id:'WC-TP-001',name:'Silk-Blend Cami Top',category:'Tops',price:349,description:'A delicate cami with adjustable straps.',sizes:['XS','S','M','L'],colours:['Ivory','Black','Dusty Rose'],material:'70% Silk, 30% Viscose',care:'Hand wash cold.',stock:'In Stock',rating:4.6,image:IMG('photo-1564257577824-902b8c6f7d4e'),popularity:82},
+  {id:'WC-TP-002',name:'Oversized Cotton Tee',category:'Tops',price:299,description:'Your everyday essential — a boxy oversized tee.',sizes:['S','M','L','XL'],colours:['White','Black','Stone','Pink'],material:'100% Cotton',care:'Machine wash warm.',stock:'In Stock',rating:4.4,image:IMG('photo-1521572163474-6864f9cf17ab'),popularity:75},
+  {id:'WC-TP-003',name:'Ribbed Knit Bodysuit',category:'Tops',price:449,description:'A second-skin ribbed bodysuit with snap closure.',sizes:['XS','S','M','L'],colours:['Black','Chocolate','Cream'],material:'Ribbed Cotton Blend',care:'Machine wash cold.',stock:'In Stock',rating:4.7,image:IMG('photo-1594633312681-425c7b97ccd1'),popularity:88},
+  {id:'WC-BT-001',name:'High-Waist Tailored Trousers',category:'Bottoms',price:699,description:'Sharp, high-waisted trousers with a straight leg.',sizes:['XS','S','M','L','XL'],colours:['Black','Charcoal','Camel'],material:'Polyester Viscose Blend',care:'Dry clean recommended.',stock:'In Stock',rating:4.6,image:IMG('photo-1594633312681-425c7b97ccd1'),popularity:84},
+  {id:'WC-JN-001',name:'Mom Fit Straight Jeans',category:'Jeans',price:749,description:'Classic mom-fit jeans with a high rise.',sizes:['26','28','30','32','34'],colours:['Mid Blue','Light Wash','Black'],material:'99% Cotton, 1% Elastane',care:'Machine wash cold.',stock:'In Stock',rating:4.7,image:IMG('photo-1541099649105-f69ad21f3246'),popularity:93},
+  {id:'WC-JK-001',name:'Oversized Wool Coat',category:'Jackets',price:1899,description:'A luxe oversized wool-blend coat.',sizes:['S','M','L'],colours:['Camel','Black','Grey'],material:'70% Wool, 30% Polyester',care:'Dry clean only.',stock:'In Stock',rating:4.9,image:IMG('photo-1544022613-e87ca75a784a'),popularity:96,isNew:true},
+  {id:'WC-KN-001',name:'Cashmere-Blend Crewneck',category:'Knitwear',price:1299,salePrice:999,description:'A soft cashmere-blend crewneck.',sizes:['S','M','L','XL'],colours:['Oatmeal','Charcoal','Dusty Rose'],material:'40% Cashmere, 60% Wool',care:'Hand wash cold.',stock:'In Stock',rating:4.8,image:IMG('photo-1576566588028-4147f3842f27'),popularity:89,onSale:true},
+  {id:'WC-AC-001',name:'Gold-Tone Layered Necklace',category:'Accessories',price:349,description:'A delicate layered necklace.',sizes:['One Size'],colours:['Gold'],material:'Brass, 18k Gold Plating',care:'Avoid water and perfume.',stock:'In Stock',rating:4.6,image:IMG('photo-1599643478518-a784e5dc4c8f'),popularity:76},
+  {id:'WC-AW-001',name:'Seamless Leggings',category:'Activewear',price:549,description:'Buttery-soft seamless leggings.',sizes:['XS','S','M','L'],colours:['Black','Mocha','Sage'],material:'Nylon Spandex Blend',care:'Machine wash cold.',stock:'In Stock',rating:4.8,image:IMG('photo-1506629082955-511b1aa562c8'),popularity:92}
+];
+
+const CATEGORIES = [
+  {name:'Dresses', image:IMG('photo-1595777457583-95e059d581b8',600,800)},
+  {name:'Tops', image:IMG('photo-1564257577824-902b8c6f7d4e',600,800)},
+  {name:'Jeans', image:IMG('photo-1541099649105-f69ad21f3246',600,800)},
+  {name:'Jackets', image:IMG('photo-1544022613-e87ca75a784a',600,800)},
+  {name:'Knitwear', image:IMG('photo-1576566588028-4147f3842f27',600,800)},
+  {name:'Activewear', image:IMG('photo-1506629082955-511b1aa562c8',600,800)}
+];
+
+function futureDate(daysAhead){
+  const d = new Date();
+  d.setDate(d.getDate() + daysAhead);
+  return d.toLocaleDateString('en-ZA', { day:'numeric', month:'long', year:'numeric' });
+}
+
+function makeTrackingNumber(){
+  const n = Math.floor(Math.random() * 1901) + 100;
+  return 'ZA' + String(n).padStart(5, '0');
+}
+
+const ORDERS = [
+  {orderId:'WC10025',customerEmail:'user@demo.com',items:[{productId:'WC-DR-001',name:'Classic Satin Midi Dress',size:'M',colour:'Black',qty:1}],status:'In Transit',stageIndex:2,trackingNumber:makeTrackingNumber(),estimatedDelivery:futureDate(3),total:899,placedAt:futureDate(-10),deliveryMethod:'Standard Delivery'},
+  {orderId:'WC10026',customerEmail:'user@demo.com',items:[{productId:'WC-TP-001',name:'Silk-Blend Cami Top',size:'S',colour:'Ivory',qty:2}],status:'Delivered',stageIndex:4,trackingNumber:makeTrackingNumber(),estimatedDelivery:futureDate(-5),total:1447,placedAt:futureDate(-20),deliveryMethod:'Express Delivery'},
+  {orderId:'WC10027',customerEmail:'user@demo.com',items:[{productId:'WC-KN-001',name:'Cashmere-Blend Crewneck',size:'M',colour:'Oatmeal',qty:1}],status:'Processing',stageIndex:1,trackingNumber:makeTrackingNumber(),estimatedDelivery:futureDate(5),total:999,placedAt:futureDate(-2),deliveryMethod:'Standard Delivery'}
+];
+
+const DELIVERY = {
+  standard:{price:99,days:'3–5 business days'},
+  express:{price:199,days:'1–2 business days'},
+  cptDays:'1–2 business days',
+  freeThreshold:850,
+  weekend:'Saturday deliveries are available in major cities at no additional charge. Share your postcode and I can check availability.',
+  intl:'Wendy\'s & Co. currently delivers within South Africa only. International delivery to Namibia and Botswana is planned for December.'
+};
+
+const RETURNS = {
+  windowDays:14,
+  nonReturnable:'For hygiene reasons, underwear, swimwear and earrings cannot be returned.',
+  process:['Log your return in the My Orders section or ask me for help','We will email you a return authorisation','Change-of-mind returns: courier fee is R99','Faulty / wrong item: we cover the courier cost','Refunds are processed within 5–7 working days to the original payment method'],
+  exchange:'One free size exchange is available per order. Request it via My Orders.',
+  lateReturn:'Your return may no longer qualify under the standard 14-day window. However, if the item is faulty, damaged, or the wrong item was sent, please provide your order number so we can review it.'
+};
+
+const PAYMENTS = {
+  methods:['Card','EFT','Capitec Pay','PayFlex'],
+  gateway:'Wendy\'s & Co. uses Paystack for secure payments.',
+  security:'All payments are processed through PCI-DSS compliant gateways. We never store card details.',
+  payflex:'PayFlex is available for orders between R300 and R3,000 — buy now, pay later in four interest-free payments.',
+  declined:'Please check that your payment details are correct and that your bank has approved the transaction. You can also try another available payment method.',
+  voucher:'Check whether the voucher has expired and whether your order meets the minimum spend. Only one voucher code can be used per order.'
+};
+
+const CONTACT = {
+  email:'hello@wendysandco.co.za',
+  support:'support@wendysandco.co.za',
+  whatsapp:'067 123 4567',
+  studio:'Wendy\'s & Co. Studio, 27 Loop Street, CBD, Cape Town, 8001 (Inside Loop Style House, 2nd Floor)',
+  hours:'Mon–Fri 9:00–17:30 · Sat 9:00–15:00 · Sun closed · Public holidays 9:00–13:00',
+  instagram:'@wendysandco.za',
+  website:'www.wendysandco.co.za'
+};
+
+const SIZE_GUIDE = {headers:['Size','Bust (cm)','Waist (cm)','Hips (cm)'],rows:[['XS','81–84','63–66','89–92'],['S','86–89','68–71','94–97'],['M','91–94','73–76','99–102'],['L','97–100','79–82','105–108'],['XL','104–108','86–90','112–116']]};
+
+/* ============================================================
+   MULTILINGUAL SUPPORT — South African languages
+   ============================================================ */
+const LANGUAGES = [
+  {code:'EN', name:'English',    native:'English',    bcp:'en-ZA', flag:'🇿🇦'},
+  {code:'AF', name:'Afrikaans',  native:'Afrikaans',  bcp:'af-ZA', flag:'🇿🇦'},
+  {code:'ZU', name:'isiZulu',    native:'isiZulu',    bcp:'zu-ZA', flag:'🇿🇦'},
+  {code:'XH', name:'isiXhosa',   native:'isiXhosa',   bcp:'xh-ZA', flag:'🇿🇦'},
+  {code:'ST', name:'Sesotho',    native:'Sesotho',    bcp:'st-ZA', flag:'🇿🇦'},
+  {code:'TN', name:'Setswana',   native:'Setswana',   bcp:'tn-ZA', flag:'🇿🇦'},
+  {code:'TS', name:'Xitsonga',   native:'Xitsonga',   bcp:'ts-ZA', flag:'🇿🇦'},
+  {code:'SS', name:'siSwati',    native:'siSwati',    bcp:'ss-ZA', flag:'🇿🇦'},
+  {code:'VE', name:'Tshivenda',  native:'Tshivenda',  bcp:'ve-ZA', flag:'🇿🇦'},
+  {code:'NR', name:'isiNdebele', native:'isiNdebele', bcp:'nr-ZA', flag:'🇿🇦'},
+  {code:'SEP',name:'Sepedi',     native:'Sepedi',     bcp:'nso-ZA',flag:'🇿🇦'}
+];
+
+const TRANSLATIONS = {
+  EN:{
+    greeting:(tod)=>`${tod}, and welcome to Wendy's & Co. I'm **Bella**, your virtual customer-care assistant. How may I assist you today?`,
+    goodMorning:'Good morning', goodAfternoon:'Good afternoon', goodEvening:'Good evening',
+    subtitle:'Personal Wendy\'s & Co. assistant · Online',
+    placeholder:'Ask Bella anything…', listening:'Listening…', thinking:'Bella is thinking…',
+    products:'Products & Services', myOrder:'My Order', delivery:'Delivery',
+    returns:'Returns & Exchanges', payments:'Payments & Billing',
+    account:'Account Support', agent:'Speak to a Consultant', other:'Something else',
+    needHelpAgain:(n)=>`\n\nIs there anything else you need assistance on${n?`, ${n}`:''}?`,
+    farewell:(n)=>`You're very welcome${n?`, ${n}`:''}! 💕\n\nThank you for shopping with Wendy's & Co. Pop back anytime — Bella is always here if you need me. ✨`,
+    noThanks:"No, that's all — thank you", yesHelp:'Yes, I need more help',
+    startNew:'Start a new conversation', keepGoing:'No, keep going',
+    closeChat:'Close chat', browse:'Browse the shop',
+    yesStartFresh:'Yes, start fresh'
+  },
+  AF:{
+    greeting:(tod)=>`${tod}, en welkom by Wendy's & Co. Ek is **Bella**, jou virtuele kliëntediens-assistent. Hoe kan ek jou vandag help?`,
+    goodMorning:'Goeie môre', goodAfternoon:'Goeie middag', goodEvening:'Goeie naand',
+    subtitle:'Persoonlike Wendy\'s & Co. assistent · Aanlyn',
+    placeholder:'Vra Bella enigiets…', listening:'Ek luister…', thinking:'Bella dink…',
+    products:'Produkte & Dienste', myOrder:'My Bestelling', delivery:'Aflewering',
+    returns:'Terugsendings & Ruilings', payments:'Betalings & Fakturering',
+    account:'Rekeningondersteuning', agent:'Praat met \'n konsultant', other:'Iets anders',
+    needHelpAgain:(n)=>`\n\nIs daar nog iets waarmee ek kan help${n?`, ${n}`:''}?`,
+    farewell:(n)=>`Jy is baie welkom${n?`, ${n}`:''}! 💕\n\nDankie dat jy by Wendy's & Co. geshop het. Kom kuier gerus weer — Bella is altyd hier. ✨`,
+    noThanks:'Nee, dit is alles — dankie', yesHelp:'Ja, ek het meer hulp nodig',
+    startNew:'Begin \'n nuwe gesprek', keepGoing:'Nee, gaan voort',
+    closeChat:'Maak klets toe', browse:'Blaai deur die winkel',
+    yesStartFresh:'Ja, begin vars'
+  },
+  ZU:{
+    greeting:(tod)=>`${tod}, futhi wamukelekile ku-Wendy's & Co. Ngingu-**Bella**, umsizi wakho wokusiza amakhasimende. Ngingakusiza kanjani namuhla?`,
+    goodMorning:'Ekusa enhle', goodAfternoon:'Ntambama enhle', goodEvening:'Kusihlwa okuhle',
+    subtitle:'Umsizi wakho siqu we-Wendy\'s & Co. · Kuxhunyiwe',
+    placeholder:'Buza uBella noma yini…', listening:'Ngiyalalela…', thinking:'UBella uyacabanga…',
+    products:'Imikhiqizo & Izinsizakalo', myOrder:'I-oda Yami', delivery:'Ukulethwa',
+    returns:'Ukubuyiswa & Ukushintshaniswa', payments:'Izinkokhelo & Amabhili',
+    account:'Ukusekelwa Kwe-akhawunti', agent:'Khuluma nomeluleki', other:'Okunye',
+    needHelpAgain:(n)=>`\n\nKukhona okunye engingakusiza ngakho${n?`, ${n}`:''}?`,
+    farewell:(n)=>`Wamukelekile${n?`, ${n}`:''}! 💕\n\nNgiyabonga ngokuthenga ku-Wendy's & Co. Buyela noma nini — uBella uhlala elapha. ✨`,
+    noThanks:'Cha, yilokho kuphela — ngiyabonga', yesHelp:'Yebo, ngidinga usizo olwengeziwe',
+    startNew:'Qala ingxoxo entsha', keepGoing:'Cha, qhubeka',
+    closeChat:'Vala ingxoxo', browse:'Phequlula isitolo',
+    yesStartFresh:'Yebo, qala okusha'
+  },
+  XH:{
+    greeting:(tod)=>`${tod}, kwaye wamkelekile ku-Wendy's & Co. Ndingu-**Bella**, umncedisi wakho wabathengi. Ndingakunceda njani namhlanje?`,
+    goodMorning:'Molo', goodAfternoon:'Molo emva kwemini', goodEvening:'Molo ngokuhlwa',
+    subtitle:'Umncedisi wakho siqu we-Wendy\'s & Co. · Kwi-intanethi',
+    placeholder:'Buza uBella nantoni na…', listening:'Ndiyaphulaphula…', thinking:'UBella uyacinga…',
+    products:'Iimveliso & Iinkonzo', myOrder:'I-odolo yam', delivery:'Ukuhanjiswa',
+    returns:'Ukubuyiselwa & Ukutshintshwa', payments:'Iintlawulo & Iibhili',
+    account:'Inkxaso ye-Akhawunti', agent:'Thetha nomcebisi', other:'Enye into',
+    needHelpAgain:(n)=>`\n\nNgaba ikhona enye into endifuna ukuyinceda ngayo${n?`, ${n}`:''}?`,
+    farewell:(n)=>`Wamkelekile${n?`, ${n}`:''}! 💕\n\nEnkosi ngokuthenga eWendy's & Co. Buya nanini na — uBella uhlala apha. ✨`,
+    noThanks:'Hayi, kuphelele apho — enkosi', yesHelp:'Ewe, ndifuna uncedo olungakumbi',
+    startNew:'Qala incoko entsha', keepGoing:'Hayi, qhubeka',
+    closeChat:'Vala incoko', browse:'Khangela evenkileni',
+    yesStartFresh:'Ewe, qala entsha'
+  },
+  ST:{
+    greeting:(tod)=>`${tod}, 'me ua amoheleha ho Wendy's & Co. Ke **Bella**, mothusi oa hau oa litšebeletso tsa bareki. Nka u thusa joang kajeno?`,
+    goodMorning:'Lumela hoseng', goodAfternoon:'Lumela thapama', goodEvening:'Lumela mantsiboea',
+    subtitle:'Mothusi oa hau oa Wendy\'s & Co. · Inthaneteng',
+    placeholder:'Botsa Bella eng kapa eng…', listening:'Kea mamela…', thinking:'Bella oa nahana…',
+    products:'Lihlahisoa & Litšebeletso', myOrder:'Taelo ea ka', delivery:'Ho tsamaisoa',
+    returns:'Ho khutlisa & Ho fapanyetsana', payments:'Litefo & Likoloto',
+    account:'Tšehetso ea Akhaonto', agent:'Bua le moeletsi', other:'Ho hong',
+    needHelpAgain:(n)=>`\n\nNa ho na le ntho e 'ngoe eo nka u thusang ka eona${n?`, ${n}`:''}?`,
+    farewell:(n)=>`Ua amoheleha${n?`, ${n}`:''}! 💕\n\nKea leboha ha u rekile ho Wendy's & Co. Khutla neng kapa neng — Bella o lula a le mona. ✨`,
+    noThanks:'Che, ke phetho — kea leboha', yesHelp:'E, ke hloka thuso e eketsehileng',
+    startNew:'Qala moqoqo o mocha', keepGoing:'Che, tsoela pele',
+    closeChat:'Koala moqoqo', browse:'Sheba lebenkele',
+    yesStartFresh:'E, qala bocha'
+  },
+  TN:{
+    greeting:(tod)=>`${tod}, mme o amogelesegile kwa Wendy's & Co. Ke **Bella**, mothusi wa gago wa tirelo ya badirisi. Nka go thusa jang gompieno?`,
+    goodMorning:'Dumela mo mosong', goodAfternoon:'Dumela mo maitseboeng', goodEvening:'Dumela mo maitseboeng',
+    subtitle:'Mothusi wa gago wa Wendy\'s & Co. · Mo inthaneteng',
+    placeholder:'Botsa Bella sepe…', listening:'Kea reetsa…', thinking:'Bella o a akanya…',
+    products:'Dikumo & Ditirelo', myOrder:'Ota ya me', delivery:'Go isiwa',
+    returns:'Go busiwa & Go fetolwa', payments:'Dituelo & Dikoloto',
+    account:'Tshegetso ya Akhaonto', agent:'Bua le moeletsi', other:'Sengwe',
+    needHelpAgain:(n)=>`\n\nA go na le sengwe gape se o tlhokang thuso ka sona${n?`, ${n}`:''}?`,
+    farewell:(n)=>`O amogelesegile${n?`, ${n}`:''}! 💕\n\nKe a leboga go reka kwa Wendy's & Co. Boela nako nngwe le nngwe — Bella o nna fano. ✨`,
+    noThanks:'Nnyaa, ke foo fela — ke a leboga', yesHelp:'Ee, ke tlhoka thuso e nngwe',
+    startNew:'Simolola puisano e ntšha', keepGoing:'Nnyaa, tswelela pele',
+    closeChat:'Tswala puisano', browse:'Browsa lebenkele',
+    yesStartFresh:'Ee, simolola sešwa'
+  },
+  TS:{
+    greeting:(tod)=>`${tod}, naswona u amukelekile eka Wendy's & Co. Ndzi **Bella**, mupfuni wa wena wa vukorhokeri bya vatirhisi. Ndzi nga ku pfuna njhani namuntlha?`,
+    goodMorning:'Mixo lowunene', goodAfternoon:'Nhlikanhi lowunene', goodEvening:'Madyambu lamanene',
+    subtitle:'Mupfuni wa wena wa Wendy\'s & Co. · Eka inthanete',
+    placeholder:'Vutisa Bella nchumu…', listening:'Ndzi yingisela…', thinking:'Bella u ehleketa…',
+    products:'Swikumiwa & Vukorhokeri', myOrder:'Odara ya mina', delivery:'Ku rhumela',
+    returns:'Ku tlherisela & Ku cinca', payments:'Tihakelo & Tikhrediti',
+    account:'Nseketelo wa Akhawunti', agent:'Vulavula na mupfuni', other:'Swin\'wana',
+    needHelpAgain:(n)=>`\n\nXana ku ni swin\'wana leswi u lava mpfuno hi swona${n?`, ${n}`:''}?`,
+    farewell:(n)=>`U amukelekile${n?`, ${n}`:''}! 💕\n\nNkhensa ku xava eka Wendy's & Co. Vuya nkarhi wun\'wana — Bella u tshama la. ✨`,
+    noThanks:'E-e, sweswo hi swona — ndza khensa', yesHelp:'Ina, ndzi lava mpfuno lowun\'wana',
+    startNew:'Sungula mbulavurisano lowuntshwa', keepGoing:'E-e, yana emahlweni',
+    closeChat:'Pfala mbulavurisano', browse:'Languta xitolo',
+    yesStartFresh:'Ina, sungula lexintshwa'
+  },
+  SS:{
+    greeting:(tod)=>`${tod}, futsi wemukelekile ku-Wendy's & Co. Ngi-**Bella**, umsiti wakho wekusita emakhasimende. Ngingakusita njani namuhla?`,
+    goodMorning:'Sawubona ekuseni', goodAfternoon:'Sawubona emini', goodEvening:'Sawubona kusihlwa',
+    subtitle:'Umsiti wakho we-Wendy\'s & Co. · Ku-inthanethi',
+    placeholder:'Butsa Bella noma yini…', listening:'Ngiyalalela…', thinking:'Bella uyacabanga…',
+    products:'Imikhicito & Tinsita', myOrder:'I-oda yami', delivery:'Kuletswa',
+    returns:'Kubuyiselwa & Kushintjwa', payments:'Tinkhokhelo & Tikoloto',
+    account:'Lusito lwe-Akhawunti', agent:'Khuluma neluleki', other:'Lokunye',
+    needHelpAgain:(n)=>`\n\nNgabe kukhona lokunye lodzinga lusito ngalo${n?`, ${n}`:''}?`,
+    farewell:(n)=>`Wemukelekile${n?`, ${n}`:''}! 💕\n\nNgiyabonga ngekuthenga ku-Wendy's & Co. Buyela noma nini — Bella uhlala lapha. ✨`,
+    noThanks:'Cha, ngikho kuphela — ngiyabonga', yesHelp:'Yebo, ngidzinga lusito lolungetiwe',
+    startNew:'Cala inkhulumo letsha', keepGoing:'Cha, chubeka',
+    closeChat:'Vala inkhulumo', browse:'Phetselela esitolo',
+    yesStartFresh:'Yebo, cala lokusha'
+  },
+  VE:{
+    greeting:(tod)=>`${tod}, naa ni ṱanganedzwa kha Wendy's & Co. Ndi **Bella**, muthusi wau wa tshumelo ya vharengi. Ndi nga ni thusa hani ṇamusi?`,
+    goodMorning:'Matsheloni a vhuḓi', goodAfternoon:'Masiari a vhuḓi', goodEvening:'Madekwana a vhuḓi',
+    subtitle:'Muthusi wau wa Wendy\'s & Co. · Kha inthanete',
+    placeholder:'Vhudzisa Bella tshithu…', listening:'Ndi khou thetshelesa…', thinking:'Bella u khou humbula…',
+    products:'Zwibveledzwa & Tshumelo', myOrder:'Oda yanga', delivery:'U ṱhumelwa',
+    returns:'U vhuyiswa & U shandukiswa', payments:'Mbadelo & Dzikoloto',
+    account:'Thikhedzo ya Akhaundi', agent:'Amba na mulanguli', other:'Zwinwe',
+    needHelpAgain:(n)=>`\n\nNaa hu na zwinwe zwine na ṱoḓa thuso ngazwo${n?`, ${n}`:''}?`,
+    farewell:(n)=>`No ṱanganedzwa${n?`, ${n}`:''}! 💕\n\nNdi a livhuwa nga u renga kha Wendy's & Co. Vhuyani tshifhinga tshinwe — Bella u dzula afha. ✨`,
+    noThanks:'Hai, ndi zwenezwo — ndi a livhuwa', yesHelp:'Ee, ndi ṱoḓa thuso nngwe',
+    startNew:'Thoma muvhigo muswa', keepGoing:'Hai, bvela phanḓa',
+    closeChat:'Vala muvhigo', browse:'Sedzani venkelo',
+    yesStartFresh:'Ee, thoma muswa'
+  },
+  NR:{
+    greeting:(tod)=>`${tod}, begodu wamukelekile ku-Wendy's & Co. Ngi-**Bella**, umsizi wakho wezokulwa nabathengi. Ngingakusiza njani namhlanje?`,
+    goodMorning:'Ivuko elihle', goodAfternoon:'Ntambama enhle', goodEvening:'Busuku obuhle',
+    subtitle:'Umsizi wakho we-Wendy\'s & Co. · Ku-inthanethi',
+    placeholder:'Buza uBella nanyana ngisiphi…', listening:'Ngiyalalela…', thinking:'UBella uyacabanga…',
+    products:'Imikhiqizo & Iinsiza', myOrder:'I-oda yami', delivery:'Ukudluliswa',
+    returns:'Ukubuyiselwa & Ukutjhentjha', payments:'Iinkhokhelo & Amakolodo',
+    account:'Isizo le-Akhawundi', agent:'Khuluma nomeluleki', other:'Okunye',
+    needHelpAgain:(n)=>`\n\nNgabe kukhona okunye okudinga isizo ngakho${n?`, ${n}`:''}?`,
+    farewell:(n)=>`Wamukelekile${n?`, ${n}`:''}! 💕\n\nNgiyathokoza ngokuthenga ku-Wendy's & Co. Buyela nanyana nini — uBella uhlala lapha. ✨`,
+    noThanks:'Awa, kuko lokho kuphela — ngiyathokoza', yesHelp:'Iye, ngidinga isizo elingeziweko',
+    startNew:'Qala umkhulumo omutjha', keepGoing:'Awa, rhweba phambili',
+    closeChat:'Vala umkhulumo', browse:'Phequlula isitolo',
+    yesStartFresh:'Iye, qala okutjha'
+  },
+  SEP:{
+    greeting:(tod)=>`${tod}, o amogetšwe go Wendy's & Co. Ke **Bella**, mothuši wa gago wa tirelo ya badiriši. Nka go thuša bjang lehono?`,
+    goodMorning:'Bošego bjo bose', goodAfternoon:'Mosegare wo bose', goodEvening:'Mantšiboa a mabotse',
+    subtitle:'Mothuši wa gago wa Wendy\'s & Co. · Mo inthaneteng',
+    placeholder:'Botšiša Bella se sengwe le se sengwe…', listening:'Ke a theeletša…', thinking:'Bella o nagana…',
+    products:'Dikumo & Ditirelo', myOrder:'Ota ya ka', delivery:'Go romelwa',
+    returns:'Go bušetša & Go fetola', payments:'Ditefo & Dikoloto',
+    account:'Thekgo ya Akhaonto', agent:'Bolela le moeletši', other:'Se sengwe',
+    needHelpAgain:(n)=>`\n\nNa go na le se sengwe seo o hlokago thušo ka sona${n?`, ${n}`:''}?`,
+    farewell:(n)=>`O amogetšwe${n?`, ${n}`:''}! 💕\n\nKe a leboga ka go reka go Wendy's & Co. Boela neng le neng — Bella o dula mo. ✨`,
+    noThanks:'Ao, ke seo fela — ke a leboga', yesHelp:'Ee, ke hloka thušo ye nngwe',
+    startNew:'Thoma poledišano ye mpsha', keepGoing:'Ao, tšwela pele',
+    closeChat:'Tswalela poledišano', browse:'Lebelela lebenkele',
+    yesStartFresh:'Ee, thoma ye mpsha'
+  }
+};
+
+/* ============================================================
+   STATE
+   ============================================================ */
+const LS = {users:'wendys_users',session:'wendys_session',tickets:'wendys_tickets',conversations:'wendys_conversations',lang:'wendys_lang',voice:'wendys_voice'};
+
+function loadUsers(){ try { return JSON.parse(localStorage.getItem(LS.users)) || [] } catch { return [] } }
+function saveUsers(u){ localStorage.setItem(LS.users, JSON.stringify(u)) }
+function loadTickets(){ try { return JSON.parse(localStorage.getItem(LS.tickets)) || [] } catch { return [] } }
+function saveTickets(t){ localStorage.setItem(LS.tickets, JSON.stringify(t)) }
+function loadConversations(){ try { return JSON.parse(localStorage.getItem(LS.conversations)) || [] } catch { return [] } }
+function saveConversations(c){ localStorage.setItem(LS.conversations, JSON.stringify(c)) }
+
+(function seedAdmin(){
+  const users = loadUsers();
+  if(!users.find(u=>u.email==='admin@wendys.co.za')) users.push({id:'admin-001',name:'Admin',email:'admin@wendys.co.za',password:'admin123',role:'admin',createdAt:new Date().toISOString()});
+  if(!users.find(u=>u.email==='user@demo.com')) users.push({id:'user-001',name:'Demo User',email:'user@demo.com',password:'user123',role:'user',createdAt:new Date().toISOString()});
+  saveUsers(users);
+})();
+
+const state = {
+  user: null,
+  cart: [],
+  wishlist: new Set(),
+  filters: {q:'', categories:new Set(), sizes:new Set(), colours:new Set(), price:new Set(), inStockOnly:false},
+  sort:'popular',
+  currentView: 'home',
+  chat: {
+    open:false,
+    messages:[],
+    ctx:{intent:null,lastProductId:null,lastProducts:null,orderId:null,customerName:null,customerEmail:null,customerPhone:null,issue:null,collectedFields:{},escalationRequested:false,currentFlow:null,flowStep:0,flowData:{},awaitingFeedback:false},
+    typing:false,
+    tickets: loadTickets(),
+    stats:{conversations:248,aiResolved:181,escalated:67},
+    lang: localStorage.getItem(LS.lang) || 'EN',
+    voiceEnabled: localStorage.getItem(LS.voice) !== 'off',
+    mic: {recognition: null, recording: false, supported: false},
+    speech: {synth: window.speechSynthesis, currentUtterance: null, speakingMsgId: null}
+  }
+};
+
+const $ = id => document.getElementById(id);
+const money = n => 'R'+n.toLocaleString('en-ZA');
+const esc = s => String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const priceOf = p => p.salePrice ?? p.price;
+const stars = r => '★'.repeat(Math.round(r))+'☆'.repeat(5-Math.round(r));
+const uid = () => Math.random().toString(36).slice(2,9);
+
+function t(key, arg){
+  const lang = state.chat.lang;
+  const dict = TRANSLATIONS[lang] || TRANSLATIONS.EN;
+  const val = dict[key] ?? TRANSLATIONS.EN[key];
+  return typeof val === 'function' ? val(arg) : val;
+}
+function langInfo(code){ return LANGUAGES.find(l=>l.code===(code||state.chat.lang)) || LANGUAGES[0]; }
+
+function toast(msg){
+  const t2 = $('toast');
+  t2.textContent = msg;
+  t2.classList.add('show');
+  clearTimeout(t2._t);
+  t2._t = setTimeout(()=>t2.classList.remove('show'),2600);
+}
+
+/* ============================================================
+   SPEECH RECOGNITION
+   ============================================================ */
+function initMic(){
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if(!SR) return;
+  const rec = new SR();
+  rec.continuous = false;
+  rec.interimResults = false;
+  rec.maxAlternatives = 1;
+  rec.onresult = (e)=>{
+    const text = e.results[0][0].transcript.trim();
+    if(text){ $('chatInput').value = text; sendChat(); }
+  };
+  rec.onerror = (e)=>{
+    console.warn('Speech error:', e.error);
+    if(e.error === 'not-allowed') toast('Microphone access denied');
+    else if(e.error === 'no-speech') toast('Didn\'t catch that — try again');
+    else toast('Voice input error — please try again');
+    stopMicUI();
+  };
+  rec.onend = ()=>{ stopMicUI(); };
+  state.chat.mic.recognition = rec;
+  state.chat.mic.supported = true;
+}
+
+function toggleMic(){
+  const mic = state.chat.mic;
+  if(!mic.supported){ toast('Voice input not supported — please use Chrome, Edge, or Safari'); return; }
+  if(mic.recording){ try { mic.recognition.stop(); } catch {} return; }
+  const lang = langInfo();
+  mic.recognition.lang = lang.bcp;
+  try {
+    mic.recognition.start();
+    mic.recording = true;
+    $('micBtn').classList.add('recording','listening');
+    showVoiceBanner(t('listening') + ' · ' + lang.native);
+  } catch(e){ toast('Could not start microphone'); stopMicUI(); }
+}
+function stopMicUI(){
+  state.chat.mic.recording = false;
+  $('micBtn').classList.remove('recording','listening');
+  hideVoiceBanner();
+}
+function showVoiceBanner(text){
+  const b = $('voiceBanner');
+  $('voiceBannerText').textContent = text;
+  b.classList.add('show');
+}
+function hideVoiceBanner(){ $('voiceBanner').classList.remove('show'); }
+
+/* ============================================================
+   SPEECH SYNTHESIS
+   ============================================================ */
+function initSpeech(){
+  if(!('speechSynthesis' in window)) return;
+  window.speechSynthesis.getVoices();
+  window.speechSynthesis.onvoiceschanged = ()=>{};
+  updateSpeakerIcon();
+}
+
+function pickVoiceForLang(lang){
+  const voices = window.speechSynthesis.getVoices();
+  if(!voices.length) return null;
+  const lc = lang.bcp.toLowerCase();
+  const base = lc.split('-')[0];
+  let v = voices.find(x=>x.lang.toLowerCase()===lc);
+  if(!v) v = voices.find(x=>x.lang.toLowerCase().startsWith(base+'-'));
+  if(!v) v = voices.find(x=>x.lang.toLowerCase()===base);
+  if(!v) v = voices.find(x=>x.lang.toLowerCase()==='en-za');
+  if(!v) v = voices.find(x=>x.lang.toLowerCase().startsWith('en'));
+  return v || voices[0];
+}
+
+function speak(text, msgId){
+  if(!state.chat.voiceEnabled) return;
+  if(!('speechSynthesis' in window)) return;
+  if(!text || !text.trim()) return;
+  window.speechSynthesis.cancel();
+  const clean = text
+    .replace(/\*\*(.+?)\*\*/g, '$1')
+    .replace(/[•·]/g, ',')
+    .replace(/\n+/g, '. ')
+    .replace(/\s+/g, ' ')
+    .replace(/[💕✨👋🛍📦🚚↩💳👩💬🆘✓🔄👗📏📞📧📍🕐📷🌐🎉🔒✈️🛒🎟️]/g, '')
+    .trim();
+  if(!clean) return;
+  const u = new SpeechSynthesisUtterance(clean);
+  const lang = langInfo();
+  u.lang = lang.bcp;
+  const v = pickVoiceForLang(lang);
+  if(v) u.voice = v;
+  u.rate = 1.0; u.pitch = 1.05; u.volume = 1;
+  u.onstart = ()=>{ state.chat.speech.speakingMsgId = msgId; renderChat(); };
+  u.onend = ()=>{ state.chat.speech.speakingMsgId = null; state.chat.speech.currentUtterance = null; renderChat(); };
+  u.onerror = ()=>{ state.chat.speech.speakingMsgId = null; state.chat.speech.currentUtterance = null; renderChat(); };
+  state.chat.speech.currentUtterance = u;
+  window.speechSynthesis.speak(u);
+}
+
+function stopSpeaking(){
+  if('speechSynthesis' in window) window.speechSynthesis.cancel();
+  state.chat.speech.speakingMsgId = null;
+  state.chat.speech.currentUtterance = null;
+}
+
+function toggleSpeaker(){
+  state.chat.voiceEnabled = !state.chat.voiceEnabled;
+  localStorage.setItem(LS.voice, state.chat.voiceEnabled ? 'on' : 'off');
+  if(!state.chat.voiceEnabled) stopSpeaking();
+  updateSpeakerIcon();
+  toast(state.chat.voiceEnabled ? '🔊 Voice replies ON' : '🔇 Voice replies OFF');
+}
+
+function updateSpeakerIcon(){
+  const icon = $('speakerIcon');
+  if(!icon) return;
+  if(state.chat.voiceEnabled){
+    icon.innerHTML = '<path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 8.5a4 4 0 010 7"/><path d="M19 6a7 7 0 010 12"/>';
+  } else {
+    icon.innerHTML = '<path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M17 9l4 6M21 9l-4 6"/>';
+  }
+}
+
+/* ============================================================
+   LANGUAGE PICKER
+   ============================================================ */
+function renderLangList(){
+  $('langList').innerHTML = LANGUAGES.map(l=>`
+    <div class="lang-item ${l.code===state.chat.lang?'active':''}" onclick="setLanguage('${l.code}')">
+      <span class="flag">${l.flag}</span>
+      <span class="name">${l.native}</span>
+      <span class="code">${l.code}</span>
+    </div>`).join('');
+}
+
+function toggleLangPicker(e){
+  if(e) e.stopPropagation();
+  const m = $('langModal');
+  const willOpen = !m.classList.contains('open');
+  m.classList.toggle('open');
+  if(willOpen) renderLangList();
+}
+
+function setLanguage(code){
+  state.chat.lang = code;
+  localStorage.setItem(LS.lang, code);
+  $('langBadge').textContent = code === 'SEP' ? 'NSO' : code;
+  $('langModal').classList.remove('open');
+  const info = langInfo(code);
+  toast(`Language: ${info.native}`);
+  $('chatSubtitle').textContent = t('subtitle');
+  $('chatInput').placeholder = t('placeholder');
+  if(state.chat.messages.length){
+    const hour = new Date().getHours();
+    const tod = hour < 12 ? t('goodMorning') : hour < 17 ? t('goodAfternoon') : t('goodEvening');
+    const announce = t('greeting', tod);
+    pushAssistant(announce, currentQuickReplies(), null, null, true);
+  } else {
+    renderChat();
+  }
+}
+
+function currentQuickReplies(){
+  return [
+    {label:t('products'), value:'Find a product', icon:'🛍'},
+    {label:t('myOrder'), value:'Track my order', icon:'📦'},
+    {label:t('delivery'), value:'Delivery information', icon:'🚚'},
+    {label:t('returns'), value:'Returns & exchanges', icon:'↩'},
+    {label:t('payments'), value:'Payment questions', icon:'💳'},
+    {label:t('account'), value:'I need account help', icon:'👤'},
+    {label:t('agent'), value:'I want to speak to a human', icon:'👩'},
+    {label:t('other'), value:'Ask something else', icon:'💬'}
+  ];
+}
+
+document.addEventListener('click', e=>{
+  const m = $('langModal');
+  if(!m) return;
+  if(!e.target.closest('.lang-modal') && !e.target.closest('#langBtn')) m.classList.remove('open');
+});
+
+/* ============================================================
+   AUTH
+   ============================================================ */
+function openAuth(tab){ $('authModal').classList.add('open'); switchAuthTab(tab || 'login'); }
+function closeAuth(){ $('authModal').classList.remove('open'); $('authError').classList.remove('show'); }
+
+function switchAuthTab(tab){
+  const isLogin = tab==='login';
+  $('tabLogin').classList.toggle('active', isLogin);
+  $('tabRegister').classList.toggle('active', !isLogin);
+  $('nameRow').style.display = isLogin ? 'none' : 'block';
+  $('authTitle').textContent = isLogin ? 'Welcome back' : 'Create your account';
+  $('authSubtitle').textContent = isLogin ? "Sign in to your Wendy's & Co. account." : "Join Wendy's & Co. for a personal shopping experience.";
+  $('authSubmit').textContent = isLogin ? 'Sign In' : 'Create Account';
+  $('authError').classList.remove('show');
+}
+
+function submitAuth(e){
+  e.preventDefault();
+  const isLogin = $('tabLogin').classList.contains('active');
+  const name = $('authName').value.trim();
+  const email = $('authEmail').value.trim().toLowerCase();
+  const password = $('authPassword').value;
+  const users = loadUsers();
+  const errEl = $('authError');
+  if(isLogin){
+    const u = users.find(x=>x.email===email && x.password===password);
+    if(!u){ errEl.textContent='Invalid email or password. Try admin@wendys.co.za / admin123'; errEl.classList.add('show'); return; }
+    state.user = u;
+  } else {
+    if(!name){ errEl.textContent='Please enter your name.'; errEl.classList.add('show'); return; }
+    if(users.find(x=>x.email===email)){ errEl.textContent='An account with that email already exists.'; errEl.classList.add('show'); return; }
+    if(password.length<6){ errEl.textContent='Password must be at least 6 characters.'; errEl.classList.add('show'); return; }
+    const newUser = {id:'u-'+Date.now(), name, email, password, role:'user', createdAt:new Date().toISOString()};
+    users.push(newUser); saveUsers(users);
+    state.user = newUser;
+  }
+  localStorage.setItem(LS.session, JSON.stringify({id:state.user.id}));
+  closeAuth();
+  toast(`Welcome, ${state.user.name}! ✨`);
+  updateUserBadge();
+  refreshView();
+}
+
+function logout(){
+  localStorage.removeItem(LS.session);
+  state.user = null;
+  state.wishlist = new Set();
+  updateUserBadge();
+  showView('home');
+  toast('Signed out');
+}
+
+function updateUserBadge(){
+  const avatar = $('userAvatar');
+  const nameEl = $('userName');
+  if(state.user){
+    avatar.textContent = state.user.name.charAt(0).toUpperCase();
+    nameEl.textContent = state.user.name.split(' ')[0];
+  } else { avatar.textContent = '?'; nameEl.textContent = 'Sign in'; }
+}
+
+function onUserBadgeClick(){
+  if(state.user){ if(state.user.role==='admin') showView('admin'); else showView('account'); }
+  else openAuth('login');
+}
+
+function restoreSession(){
+  const s = localStorage.getItem(LS.session);
+  if(!s) return;
+  try {
+    const {id} = JSON.parse(s);
+    const u = loadUsers().find(x=>x.id===id);
+    if(u) state.user = u;
+  } catch {}
+}
+
+function showView(name){
+  state.currentView = name;
+  document.querySelectorAll('.view-page').forEach(v=>v.classList.remove('active'));
+  const el = $('view-'+name);
+  if(el) el.classList.add('active');
+  if(name==='admin' && (!state.user || state.user.role!=='admin')){ toast('Admin access only'); openAuth('login'); showView('home'); return; }
+  if(name==='account' && !state.user){ openAuth('login'); showView('home'); return; }
+  window.scrollTo({top:0,behavior:'instant'});
+  document.getElementById('navLinks').classList.remove('open');
+  if(name==='shop') renderShop();
+  if(name==='account') renderAccount();
+  if(name==='admin') renderAdmin();
+}
+
+function refreshView(){ showView(state.currentView); }
+
+function renderCategories(){
+  $('catGrid').innerHTML = CATEGORIES.map(c=>`
+    <div class="cat-card" onclick="filterCategory('${c.name}')">
+      <img src="${c.image}" alt="${c.name}" loading="lazy"><span>${c.name}</span>
+    </div>`).join('');
+}
+
+function filterCategory(cat){
+  if(cat==='New Arrivals'){ state.filters.categories=new Set(); state.sort='new'; }
+  else if(cat==='Sale'){ state.filters.categories=new Set(); state.filters.price=new Set(['0-600']); }
+  else { state.filters.categories = new Set([cat]); }
+  showView('shop'); renderFiltersUI(); renderShop();
+}
+
+function renderFiltersUI(){
+  const allCats = [...new Set(PRODUCTS.map(p=>p.category))].sort();
+  $('filterCats').innerHTML = allCats.map(c=>`<label><input type="checkbox" ${state.filters.categories.has(c)?'checked':''} onchange="toggleFilter('categories','${c}')"> ${c}</label>`).join('');
+  const allSizes = [...new Set(PRODUCTS.flatMap(p=>p.sizes))].sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));
+  $('filterSizes').innerHTML = allSizes.map(s=>`<label><input type="checkbox" ${state.filters.sizes.has(s)?'checked':''} onchange="toggleFilter('sizes','${s}')"> ${s}</label>`).join('');
+  const allColours = [...new Set(PRODUCTS.flatMap(p=>p.colours))].sort();
+  $('filterColours').innerHTML = allColours.map(c=>`<label><input type="checkbox" ${state.filters.colours.has(c)?'checked':''} onchange="toggleFilter('colours','${esc(c)}')"> ${esc(c)}</label>`).join('');
+}
+
+function toggleFilter(group, value){
+  const set = state.filters[group];
+  if(set.has(value)) set.delete(value); else set.add(value);
+  renderShop();
+}
+
+function resetFilters(){
+  state.filters = {q:'', categories:new Set(), sizes:new Set(), colours:new Set(), price:new Set(), inStockOnly:false};
+  $('searchTop').value='';
+  document.querySelectorAll('[data-price]').forEach(cb=>cb.checked=false);
+  $('inStockOnly').checked=false;
+  renderFiltersUI(); renderShop();
+}
+
+function getFilteredProducts(){
+  let list = [...PRODUCTS];
+  const f = state.filters;
+  if(f.q){
+    const q = f.q.toLowerCase();
+    list = list.filter(p=>p.name.toLowerCase().includes(q)||p.description.toLowerCase().includes(q)||p.category.toLowerCase().includes(q)||p.colours.some(c=>c.toLowerCase().includes(q)));
+  }
+  if(f.categories.size) list = list.filter(p=>f.categories.has(p.category));
+  if(f.sizes.size) list = list.filter(p=>p.sizes.some(s=>f.sizes.has(s)));
+  if(f.colours.size) list = list.filter(p=>p.colours.some(c=>f.colours.has(c)));
+  if(f.price.size){
+    list = list.filter(p=>{
+      const price = priceOf(p);
+      return [...f.price].some(range=>{const [lo,hi]=range.split('-').map(Number);return price>=lo&&price<=hi;});
+    });
+  }
+  if(f.inStockOnly) list = list.filter(p=>p.stock==='In Stock');
+  const sort = state.sort;
+  if(sort==='low') list.sort((a,b)=>priceOf(a)-priceOf(b));
+  else if(sort==='high') list.sort((a,b)=>priceOf(b)-priceOf(a));
+  else if(sort==='rating') list.sort((a,b)=>b.rating-a.rating);
+  else if(sort==='new') list.sort((a,b)=>(b.isNew?1:0)-(a.isNew?1:0));
+  else list.sort((a,b)=>b.popularity-a.popularity);
+  return list;
+}
+
+function productCardHTML(p){
+  const inWish = state.wishlist.has(p.id);
+  return `<div class="p-card">
+    <div class="p-media" onclick="openProduct('${p.id}')" style="cursor:pointer">
+      <img src="${p.image}" alt="${esc(p.name)}" loading="lazy">
+      <div class="p-tags">${p.isNew?'<span class="tag new">New</span>':''}${p.onSale?'<span class="tag sale">Sale</span>':''}</div>
+      <button class="p-wish ${inWish?'active':''}" onclick="event.stopPropagation();toggleWish('${p.id}')" aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
+      <div class="p-quick"><button class="btn btn-primary btn-sm btn-block" onclick="event.stopPropagation();quickAdd('${p.id}')">Quick add</button></div>
+    </div>
+    <div class="p-body">
+      <div class="p-meta"><span>${esc(p.category)}</span><span class="stars">${stars(p.rating)}</span></div>
+      <h3>${esc(p.name)}</h3>
+      <div class="p-price">${p.salePrice?`<del>${money(p.price)}</del>`:''}${money(priceOf(p))}</div>
+      <div class="p-actions">
+        <button class="btn btn-primary btn-sm" style="flex:1" onclick="quickAdd('${p.id}')">Add to cart</button>
+        <button class="btn btn-ghost btn-sm" onclick="openProduct('${p.id}')">View</button>
+      </div>
+    </div></div>`;
+}
+
+function renderShop(){
+  state.filters.q = $('searchTop').value;
+  state.sort = $('sortBy').value;
+  state.filters.inStockOnly = $('inStockOnly').checked;
+  state.filters.price = new Set();
+  document.querySelectorAll('[data-price]').forEach(cb=>{ if(cb.checked) state.filters.price.add(cb.dataset.price); });
+  const list = getFilteredProducts();
+  $('resultCount').textContent = `${list.length} product${list.length===1?'':'s'} found`;
+  $('shopGrid').innerHTML = list.length ? list.map(productCardHTML).join('') :
+    `<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--muted)"><p style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--charcoal);margin-bottom:8px">No products match.</p><button class="btn btn-ghost btn-sm" onclick="resetFilters()">Reset filters</button></div>`;
+}
+
+function toggleWish(id){
+  if(state.wishlist.has(id)){ state.wishlist.delete(id); toast('Removed from wishlist'); }
+  else { state.wishlist.add(id); toast('Added to wishlist ♥'); }
+  renderShop();
+}
+
+function quickAdd(id){
+  const p = PRODUCTS.find(x=>x.id===id);
+  if(!p) return;
+  addToCart(p.id, p.sizes[0], p.colours[0], 1);
+}
+
+function addToCart(productId, size, colour, qty){
+  const existing = state.cart.find(c=>c.productId===productId && c.size===size && c.colour===colour);
+  if(existing) existing.qty += qty;
+  else state.cart.push({productId, size, colour, qty});
+  updateCartUI();
+  toast('Added to cart ✓');
+}
+
+function removeFromCart(i){ state.cart.splice(i,1); updateCartUI(); }
+function updateQty(i, delta){ state.cart[i].qty += delta; if(state.cart[i].qty<=0) state.cart.splice(i,1); updateCartUI(); }
+
+function cartSubtotal(){
+  return state.cart.reduce((sum,item)=>{
+    const p = PRODUCTS.find(x=>x.id===item.productId);
+    return sum + (p?priceOf(p)*item.qty:0);
+  },0);
+}
+
+function updateCartUI(){
+  const count = state.cart.reduce((s,i)=>s+i.qty,0);
+  const badge = $('cartCount');
+  badge.textContent = count;
+  badge.style.display = count>0 ? 'grid' : 'none';
+  if(!state.cart.length){
+    $('cartBody').innerHTML = `<div style="text-align:center;padding:60px 0;color:var(--muted)"><div style="font-size:2.5rem;margin-bottom:10px">🛍</div><p>Your cart is empty.</p></div>`;
+    $('cartFoot').innerHTML = `<button class="btn btn-ghost btn-block" onclick="closeCart()">Continue shopping</button>`;
+    return;
+  }
+  $('cartBody').innerHTML = state.cart.map((item,i)=>{
+    const p = PRODUCTS.find(x=>x.id===item.productId);
+    return `<div class="cart-row">
+      <img src="${p.image}" alt="${esc(p.name)}">
+      <div class="cart-row-info">
+        <strong>${esc(p.name)}</strong>
+        <div style="color:var(--muted);font-size:.8rem">${esc(item.size)} · ${esc(item.colour)}</div>
+        <div class="qty">
+          <button onclick="updateQty(${i},-1)">−</button>
+          <span style="min-width:20px;text-align:center;font-weight:600">${item.qty}</span>
+          <button onclick="updateQty(${i},1)">+</button>
+          <button onclick="removeFromCart(${i})" style="margin-left:auto;background:none;border:none;color:var(--rose-deep);font-size:.78rem;font-weight:600;width:auto">Remove</button>
+        </div>
+      </div>
+      <div style="font-weight:700;font-size:.9rem">${money(priceOf(p)*item.qty)}</div>
+    </div>`;
+  }).join('');
+  const subtotal = cartSubtotal();
+  const delivery = subtotal >= DELIVERY.freeThreshold ? 0 : DELIVERY.standard.price;
+  $('cartFoot').innerHTML = `
+    <div class="row-total"><span>Subtotal</span><span>${money(subtotal)}</span></div>
+    <div class="row-total"><span>Standard delivery</span><span>${delivery?money(delivery):'FREE'}</span></div>
+    <div class="row-total grand"><span>Total</span><span>${money(subtotal+delivery)}</span></div>
+    <button class="btn btn-primary btn-block" style="margin-top:14px" onclick="checkout()">Proceed to checkout</button>
+    <button class="btn btn-ghost btn-block" style="margin-top:8px" onclick="closeCart()">Continue shopping</button>`;
+}
+
+function checkout(){
+  if(!state.cart.length) return;
+  if(!state.user){ toast('Please sign in to checkout'); closeCart(); openAuth('login'); return; }
+  toast('Demo checkout — order simulated ✓');
+  setTimeout(()=>{ state.cart = []; updateCartUI(); closeCart(); toast('Thank you for your order! 💕'); }, 900);
+}
+
+function openCart(){ $('cartDrawer').classList.add('open'); }
+function closeCart(){ $('cartDrawer').classList.remove('open'); }
+
+function openProduct(id){
+  const p = PRODUCTS.find(x=>x.id===id);
+  if(!p) return;
+  const sizeOpts = p.sizes.map((s,i)=>`<button class="opt ${i===0?'active':''}" onclick="selectOpt(this)">${esc(s)}</button>`).join('');
+  const colourOpts = p.colours.map((c,i)=>`<button class="opt ${i===0?'active':''}" onclick="selectOpt(this)">${esc(c)}</button>`).join('');
+  $('modalContent').innerHTML = `
+    <div class="modal-img"><img src="${p.image}" alt="${esc(p.name)}"></div>
+    <div class="modal-body">
+      <div class="eyebrow">${esc(p.category)}</div>
+      <h2 style="font-size:1.7rem">${esc(p.name)}</h2>
+      <div style="display:flex;align-items:center;gap:14px;margin:12px 0 18px">
+        <div class="p-price" style="font-size:1.3rem">${p.salePrice?`<del style="font-size:.95rem">${money(p.price)}</del>`:''}${money(priceOf(p))}</div>
+        <span class="stars">${stars(p.rating)}</span>
+        <span style="font-size:.8rem;color:var(--muted)">(${p.rating})</span>
+      </div>
+      <p style="color:var(--muted);font-size:.9rem;margin-bottom:18px">${esc(p.description)}</p>
+      <div style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px">Size</div>
+      <div class="opt-row" id="sizeRow">${sizeOpts}</div>
+      <div style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px">Colour</div>
+      <div class="opt-row" id="colourRow">${colourOpts}</div>
+      <ul class="info-list">
+        <li><strong>Material</strong> ${esc(p.material)}</li>
+        <li><strong>Care</strong> ${esc(p.care)}</li>
+        <li><strong>Stock</strong> <span style="color:${p.stock==='In Stock'?'#1E8A44':p.stock==='Low Stock'?'#B07300':'#C13B3B'};font-weight:600">${p.stock}</span></li>
+        <li><strong>Product ID</strong> ${p.id}</li>
+      </ul>
+      <div style="display:flex;gap:10px;margin-top:16px">
+        <button class="btn btn-primary" style="flex:1" onclick="addFromModal('${p.id}')">Add to cart</button>
+        <button class="btn btn-ghost" onclick="toggleWish('${p.id}')">♥ Wishlist</button>
+      </div>
+      <div class="ask-wendy">
+        <div><strong style="display:block;font-size:.88rem;margin-bottom:2px">Need help choosing?</strong><span style="color:var(--muted)">Bella can suggest a size or styling.</span></div>
+        <button class="btn btn-rose btn-sm" onclick="askAbout('${p.id}')">✨ Ask Bella</button>
+      </div>
+    </div>`;
+  $('modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function selectOpt(btn){ btn.parentElement.querySelectorAll('.opt').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); }
+
+function addFromModal(id){
+  const size = document.querySelector('#sizeRow .opt.active')?.textContent || 'M';
+  const colour = document.querySelector('#colourRow .opt.active')?.textContent || 'Black';
+  addToCart(id, size, colour, 1);
+  closeModal();
+}
+
+function askAbout(id){
+  const p = PRODUCTS.find(x=>x.id===id);
+  closeModal();
+  openChat(true);
+  setTimeout(()=>{
+    state.chat.ctx.lastProductId = id;
+    pushAssistant(`I see you're looking at the **${p.name}**. Would you like help choosing a size, colour or styling option?`, [
+      {label:'Help me choose a size', value:'Help me choose a size', icon:'📏'},
+      {label:'Add to cart', value:`Add the ${p.name} to my cart`, icon:'🛒'}
+    ]);
+  }, 300);
+}
+
+function closeModal(){ $('modal').classList.remove('open'); document.body.style.overflow=''; }
+
+/* ============================================================
+   INTENT DETECTION
+   ============================================================ */
+const INTENT_RULES = [
+  {name:'escalation', weight:3, patterns:[
+    /\b(speak|talk|chat)\s+(to|with)\s+(a\s+)?(human|person|agent|someone|representative|advisor|consultant)/i,
+    /\b(human|real person|live agent|customer service|support agent|consultant)\b/i,
+    /\b(connect|put)\s+me\s+(through|to)\b/i,
+    /\b(this isn'?t helping|not helping|useless|frustrated)\b/i,
+    /\bi need (a )?(human|person|agent)\b/i,
+    /\bcan i (talk|speak) to (a )?(person|human)\b/i,
+    /\btransfer me\b/i,
+    /\b(praat|gesels)\s+met\s+('?n\s+)?(mens|persoon|agent|verteenwoordiger|konsultant)\b/i,
+    /\bek wil met iemand praat\b/i,
+    /\bkhuluma\s+nomuntu\b/i,
+    /\bngifuna umuntu\b/i,
+    /\bthetha nomntu\b/i,
+    /\bbua le motho\b/i,
+    /\bbolela le motho\b/i,
+    /\bvulavula na munhu\b/i,
+    /\bkhuluma nemuntfu\b/i,
+    /\bamba na muthu\b/i
+  ]},
+  {name:'order_tracking', weight:2, patterns:[
+    /\b(track|where('?s| is)|status|locate)\b.*\b(order|package|parcel|delivery|shipment)\b/i,
+    /\bwhere('?s| is) my (order|package|stuff)\b/i,
+    /\bwhat happened to my (delivery|order|package)\b/i,
+    /\bWC\d{4,}\b/i, /\bWAC\d{4,}\b/i,
+    /\bstuck on shipped\b/i, /\bcourier says delivered\b/i, /\btracking sms\b/i,
+    /\bwaar is my (bestelling|pakket)\b/i,
+    /\bikuphi i-oda yami\b/i,
+    /\biphi i-odolo yam\b/i,
+    /\btaelo ya ka e kae\b/i,
+    /\bota ya me e kae\b/i,
+    /\bota ya ka e kae\b/i,
+    /\bkwihi odara ya mina\b/i
+  ]},
+  {name:'returns', weight:2, patterns:[
+    /\b(return|refund|send back|exchange|swap)\b/i,
+    /\b(wrong|incorrect|damaged|broken|faulty)\b.*\b(item|product|order|dress|top|jeans)\b/i,
+    /\bmy size doesn'?t fit\b/i,
+    /\breturn deadline\b/i,
+    /\bwho pays.*(return|courier)\b/i,
+    /\b(terugsend|terugbetaling|ruil)\b/i,
+    /\b(buyisela|shintsha)\b/i,
+    /\b(buyisela|tshintsha)\b/i,
+    /\b(khutlisa|fapanyetsana)\b/i,
+    /\b(busia|fetola)\b/i,
+    /\b(bušetša|fetola)\b/i,
+    /\b(tlherisela|cinca)\b/i,
+    /\b(buyisela|shintja)\b/i,
+    /\b(vhuyiswa|shandukiswa)\b/i
+  ]},
+  {name:'size_help', weight:2, patterns:[
+    /\b(what|which) size\b/i, /\bsize (guide|chart|help|recommendation|advice)\b/i,
+    /\bhelp me (choose|pick|find).*(size|fit)\b/i, /\bwhat size (should|do) i\b/i, /\bwill (this|it) fit me\b/i,
+    /\b(watter|wiese) grootte\b/i,
+    /\buyiphi usayizi\b/i,
+    /\buyiphi isayizi\b/i,
+    /\b(size|boholo) bofe\b/i,
+    /\bbogolo bofe\b/i,
+    /\bsayizi muni\b/i
+  ]},
+  {name:'delivery_info', weight:2, patterns:[
+    /\b(delivery|shipping|postage|courier)\b.*\b(cost|price|how much|how long|time|take)\b/i,
+    /\bhow much (is|does).*(delivery|shipping)\b/i,
+    /\bhow long.*(delivery|shipping|arrive)\b/i,
+    /\bdo you (deliver|ship)\b/i, /\bdeliver to\b/i,
+    /\bdeliver on weekend/i, /\bsaturday deliver/i, /\binternational deliver/i,
+    /\b(aflewering|versending)\b/i,
+    /\bukulethwa\b/i,
+    /\bukuhanjiswa\b/i,
+    /\bho tsamaisoa\b/i,
+    /\bgo isiwa\b/i,
+    /\bgo romelwa\b/i,
+    /\bku rhumela\b/i
+  ]},
+  {name:'payment', weight:2, patterns:[
+    /\b(pay|payment|checkout|card|eft|paypal|snapscan|payfast|payflex|payjustnow|capitec|paystack|voucher)\b/i,
+    /\bhow (do|can) i pay\b/i, /\bpayment (methods|options)\b/i, /\bis it safe\b/i, /\bmy payment was declined\b/i,
+    /\b(betaling|betaal)\b/i,
+    /\b(inkokhelo|khokha)\b/i,
+    /\b(intlawulo|hlawula)\b/i,
+    /\b(tefo|lefa)\b/i,
+    /\b(tuelo|duela)\b/i,
+    /\b(tihakelo|hakela)\b/i
+  ]},
+  {name:'recommendation', weight:2, patterns:[
+    /\b(recommend|suggest|advice|advise|idea|inspiration)\b/i,
+    /\b(outfit|look|style)\b.*\b(idea|for|help|recommend)\b/i,
+    /\b(occasion|wedding|party|date|work|interview|church|funeral)\b/i,
+    /\bwhat (should|can) i wear\b/i,
+    /\bi (have|need).*(wedding|event|party|date|occasion)\b/i,
+    /\b(aanbeveel|voorstel|uitrusting)\b/i,
+    /\b(ncoma|phakamisa)\b/i,
+    /\b(ncoma|cebisa)\b/i,
+    /\b(khothaletsa|eletsa)\b/i,
+    /\b(kgakololo|eletsa)\b/i,
+    /\b(kgothaletso|eletsa)\b/i,
+    /\b(ringanisa|eletsa)\b/i
+  ]},
+  {name:'product_search', weight:1, patterns:[
+    /\b(show|find|search|looking for|do you (have|sell|stock)|i need|i want)\b/i,
+    /\b(dress|top|jeans|jacket|coat|knit|legging|accessor|bag|necklace|bra)\b/i,
+    /\bunder\s*R?\d+/i,
+    /\bblack|white|blue|red|pink|green|cream|ivory|gold|rose\b/i,
+    /\b(wys|soek|het jy)\b/i,
+    /\b(khombisa|funa|ngidinga)\b/i,
+    /\b(bonisa|funa|ndifuna)\b/i,
+    /\b(bontsha|batla|ke hloka)\b/i,
+    /\b(bontšha|nyaka|ke hloka)\b/i,
+    /\b(kombisa|lava|ndzi lava)\b/i,
+    /\b(sumbedza|ṱoḓa|ndi ṱoḓa)\b/i
+  ]},
+  {name:'product_info', weight:1, patterns:[
+    /\b(material|fabric|made of|care|wash|iron|dry clean)\b/i,
+    /\b(how much|price|cost) (is|for|of)\b/i,
+    /\bis (it|this|the).*(available|in stock)\b/i,
+    /\bdo you have (it|this) in\b/i
+  ]},
+  {name:'store_info', weight:1, patterns:[
+    /\b(where are you|location|address|physical store|shop|studio)\b/i,
+    /\b(opening|business|trading|open) (hours|times)\b/i,
+    /\bwhat time (are you|do you)\b/i,
+    /\bcontact (details|info|number|email)\b/i,
+    /\bwhatsapp\b/i, /\binstagram\b/i, /\btiktok\b/i, /\bphone number\b/i, /\bcan i call\b/i, /\bare you open now\b/i,
+    /\b(waar is julle|kontak|openingstye)\b/i,
+    /\b(nikuphi|thintana|amahora)\b/i,
+    /\b(niphi|nxibelelana|iiyure)\b/i,
+    /\b(le kae|ikopanya|lihora)\b/i,
+    /\b(lo kae|ikgolaganya|ura)\b/i
+  ]},
+  {name:'privacy', weight:2, patterns:[
+    /\b(privacy|private|measurements.*(kept|shared|private))\b/i,
+    /\bshare (my )?data\b/i
+  ]},
+  {name:'complaint', weight:3, patterns:[
+    /\b(complaint|complain|terrible|awful|unacceptable|disappointed|worst)\b/i,
+    /\bnot happy\b/i, /\bfrustrating\b/i,
+    /\b(klagte|kla|teleurstellend)\b/i,
+    /\b(isikhalo|khala)\b/i
+  ]},
+  {name:'greeting', weight:1, patterns:[
+    /^(hi|hello|hey|good (morning|afternoon|evening)|howzit)\b/i,
+    /^(hallo|goeie|more|middag|naand)\b/i,
+    /^(sawubona|sanibonani|molo|dumela|ndaa|avuxeni|lotjhani)\b/i
+  ]},
+  {name:'thanks', weight:1, patterns:[
+    /\b(thanks|thank you|ta|cheers|appreciate)\b/i,
+    /\b(dankie|baie dankie)\b/i,
+    /\b(ngiyabonga|enkosi|kea leboha|ke a leboga|ndza khensa|ngiyathokoza|ndi a livhuwa)\b/i
+  ]}
+];
+
+function detectIntent(text){
+  let best = {name:'unknown', confidence:0, entities:extractEntities(text)};
+  for(const rule of INTENT_RULES){
+    let hits = 0;
+    for(const p of rule.patterns) if(p.test(text)) hits++;
+    if(hits===0) continue;
+    const conf = Math.min(1, (hits * rule.weight)/3);
+    if(conf > best.confidence) best = {name:rule.name, confidence:conf, entities:extractEntities(text)};
+  }
+  return best;
+}
+
+function extractEntities(text){
+  const e = {};
+  const m1 = text.match(/under\s*R?\s*(\d{2,6})/i) || text.match(/less than\s*R?\s*(\d{2,6})/i);
+  if(m1) e.maxPrice = parseInt(m1[1],10);
+  const m2 = text.match(/\bW(AC)?C?\d{4,}\b/i);
+  if(m2) e.orderId = m2[0].toUpperCase();
+  const colours = ['black','white','ivory','cream','burgundy','champagne','rose','pink','blue','indigo','sage','camel','charcoal','gold','tan','chocolate','stone','mocha','grey','gray','red','green','swart','wit','pienk','rooi','blou'];
+  const found = colours.filter(c=>new RegExp(`\\b${c}\\b`,'i').test(text));
+  if(found.length) e.colours = found;
+  const sizes = ['xs','s','m','l','xl','xxl','26','28','30','32','34'];
+  const sFound = sizes.filter(s=>new RegExp(`\\bsize\\s*${s}\\b|\\b${s}\\b`,'i').test(text));
+  if(sFound.length) e.sizes = sFound.map(s=>s.toUpperCase());
+  const cats = ['dress','top','jeans','jacket','coat','knit','legging','accessor','bag','necklace','bra','activewear','rok','hemp','broek'];
+  const cFound = cats.filter(c=>new RegExp(`\\b${c}`,'i').test(text));
+  if(cFound.length) e.categories = cFound;
+  return e;
+}
+
+function searchProducts(query, ctx){
+  const e = ctx.intent?.entities || {};
+  let results = [...PRODUCTS];
+  const q = query.toLowerCase();
+  if(e.maxPrice) results = results.filter(p=>priceOf(p) <= e.maxPrice);
+  if(e.colours?.length) results = results.filter(p=>p.colours.some(c=>e.colours.some(ec=>c.toLowerCase().includes(ec))));
+  if(e.categories?.length) results = results.filter(p=>e.categories.some(c=>p.category.toLowerCase().includes(c)||p.name.toLowerCase().includes(c)||p.description.toLowerCase().includes(c)));
+  if(e.sizes?.length) results = results.filter(p=>p.sizes.some(s=>e.sizes.includes(s.toUpperCase())));
+  if(!results.length){
+    const keywords = q.split(/\s+/).filter(w=>w.length>3);
+    results = PRODUCTS.filter(p=>keywords.some(k=>p.name.toLowerCase().includes(k)||p.description.toLowerCase().includes(k)));
+  }
+  return results.slice(0,3);
+}
+
+function runEngine(userText, ctx, intent){
+  const flow = ctx.currentFlow;
+  const step = ctx.flowStep || 0;
+  if(flow==='recommendation' && step>0) return recommendationFlow(userText, ctx);
+  if(flow==='size' && step>0) return sizeFlow(userText, ctx);
+  if(flow==='order_tracking' && step>0) return orderTrackingFlow(userText, ctx);
+  if(flow==='returns' && step>0) return returnsFlow(userText, ctx);
+  if(flow==='escalation' && step>0) return escalationFlow(userText, ctx);
+  switch(intent.name){
+    case 'greeting': {
+      const hour = new Date().getHours();
+      const tod = hour < 12 ? t('goodMorning') : hour < 17 ? t('goodAfternoon') : t('goodEvening');
+      return {content: t('greeting', tod), quickReplies: currentQuickReplies()};
+    }
+    case 'thanks': return wrapEndOfHelp({content:"You're very welcome! 💕"});
+    case 'escalation': return startEscalation(ctx);
+    case 'order_tracking': return startOrderTracking(userText, ctx, intent);
+    case 'returns': return startReturns(userText, ctx, intent);
+    case 'size_help': return startSizeFlow(ctx);
+    case 'delivery_info': return wrapEndOfHelp(deliveryInfo(userText));
+    case 'payment': return wrapEndOfHelp(paymentInfo(userText));
+    case 'store_info': return wrapEndOfHelp(storeInfo());
+    case 'privacy': return wrapEndOfHelp(privacyInfo());
+    case 'complaint': return {content:"I'm really sorry to hear that. I'd like to get this sorted properly. Would you like me to connect you with a human agent right away?",
+      quickReplies:[{label:'Yes, connect me',value:'I want to speak to a human',icon:'👩'},{label:'No, let me explain',value:'Let me explain'}]};
+    case 'recommendation': return startRecommendation(userText, ctx, intent);
+    case 'product_search':
+    case 'product_info': return productSearchReply(userText, ctx, intent);
+    default: return fallback();
+  }
+}
+
+function wrapEndOfHelp(reply){
+  const firstName = state.user?.name?.split(' ')[0] || '';
+  reply.content = reply.content + t('needHelpAgain', firstName);
+  reply.quickReplies = [
+    {label:t('noThanks'), value:'No thanks', icon:'✓'},
+    {label:t('yesHelp'), value:'I still need help', icon:'🆘'},
+    {label:t('startNew'), value:'Start new conversation', icon:'🔄'},
+    ...(reply.quickReplies||[])
+  ];
+  reply.contextPatch = Object.assign({}, reply.contextPatch, {awaitingFeedback: true});
+  return reply;
+}
+
+function productSearchReply(userText, ctx, intent){
+  const ctxWithIntent = {...ctx, intent};
+  const results = searchProducts(userText, ctxWithIntent);
+  if(!results.length){
+    return wrapEndOfHelp({content:"I couldn't find an exact match. Could you tell me a bit more — category, colour, or budget?",
+      quickReplies:[{label:'Show dresses',value:'Show me dresses'},{label:'Show tops',value:'Show me tops'},{label:'Speak to an agent',value:'I want to speak to a human',icon:'👩'}]});
+  }
+  return wrapEndOfHelp({
+    content:`Here ${results.length===1?'is a match':'are some options'} I found for you:`,
+    products:results,
+    contextPatch:{lastProducts:results, intent},
+    quickReplies:[{label:'Help me choose a size',value:'Help me choose a size',icon:'📏'}]
+  });
+}
+
+function startRecommendation(userText, ctx, intent){
+  const data = {};
+  const e = intent.entities || {};
+  if(e.categories) data.category = e.categories[0];
+  const occ = userText.match(/\b(wedding|party|date|work|interview|church|funeral|casual|formal|troue|partytjie)\b/i)?.[1];
+  if(occ){
+    data.occasion = occ.toLowerCase();
+    return {content:`Lovely — a ${data.occasion}! Do you have a preference for what type of outfit?`,
+      quickReplies:[{label:'A dress',value:'A dress'},{label:'Trousers / separates',value:'Separates'},{label:'A jumpsuit',value:'A jumpsuit'},{label:'Surprise me',value:'Surprise me'}],
+      contextPatch:{currentFlow:'recommendation', flowStep:2, flowData:data, intent}};
+  }
+  return {content:"I'd love to help you find the perfect outfit! What's the occasion?",
+    quickReplies:[{label:'Wedding',value:'A wedding'},{label:'Party / Event',value:'A party'},{label:'Work / Office',value:'Work'},{label:'Casual',value:'Casual'},{label:'Date night',value:'A date'}],
+    contextPatch:{currentFlow:'recommendation', flowStep:1, flowData:data, intent}};
+}
+
+function recommendationFlow(userText, ctx){
+  const step = ctx.flowStep || 1;
+  const data = {...ctx.flowData};
+  if(step===1){ data.occasion = userText.trim();
+    return {content:`Lovely — ${userText.trim()}! What type of outfit?`,
+      quickReplies:[{label:'A dress',value:'A dress'},{label:'Trousers / separates',value:'Separates'},{label:'A jumpsuit',value:'A jumpsuit'},{label:'Surprise me',value:'Surprise me'}],
+      contextPatch:{flowStep:2, flowData:data}};
+  }
+  if(step===2){ data.type = userText.trim();
+    return {content:"And what's your approximate budget?",
+      quickReplies:[{label:'Under R600',value:'Under R600'},{label:'R600 – R1,000',value:'R600 to R1000'},{label:'R1,000 – R2,000',value:'R1000 to R2000'},{label:'No limit',value:'No budget limit'}],
+      contextPatch:{flowStep:3, flowData:data}};
+  }
+  if(step===3){ data.budget = userText.trim();
+    return {content:'Almost there! What size do you usually wear?', quickReplies:['XS','S','M','L','XL'].map(s=>({label:s,value:s})), contextPatch:{flowStep:4, flowData:data}};
+  }
+  if(step===4){ data.size = userText.trim();
+    return {content:'Last one — any colours you love or want to avoid?',
+      quickReplies:[{label:'Black / neutrals',value:'Black and neutrals'},{label:'Pinks / roses',value:'Pinks and roses'},{label:'Earth tones',value:'Earth tones'},{label:'No preference',value:'No preference'}],
+      contextPatch:{flowStep:5, flowData:data}};
+  }
+  data.colours = userText.trim();
+  const recs = recommendFromData(data);
+  return wrapEndOfHelp({
+    content:`Based on what you've told me, I'd recommend these ${recs.length} option${recs.length===1?'':'s'} for your ${data.occasion}.`,
+    products:recs,
+    quickReplies:[{label:'Help me choose a size',value:'Help me choose a size',icon:'📏'},{label:'Add to cart',value:'Add to cart'}],
+    contextPatch:{currentFlow:null, flowStep:0, flowData:{}, lastProducts:recs}
+  });
+}
+
+function recommendFromData(data){
+  let pool = PRODUCTS.filter(p=>p.stock!=='Out of Stock');
+  const type = (data.type||'').toLowerCase();
+  if(type.includes('dress')||type.includes('rok')) pool = pool.filter(p=>p.category==='Dresses');
+  if(type.includes('trouser')||type.includes('separate')||type.includes('broek')) pool = pool.filter(p=>['Bottoms','Tops','Jeans'].includes(p.category));
+  const budget = data.budget||'';
+  const m = budget.match(/(\d[\d,]*)\s*(?:to|–|-)\s*R?(\d[\d,]*)/i);
+  if(m){
+    const lo = parseInt(m[1].replace(/,/g,''),10), hi = parseInt(m[2].replace(/,/g,''),10);
+    pool = pool.filter(p=>{const pr=priceOf(p);return pr>=lo&&pr<=hi;});
+  } else if(/under\s*R?(\d+)/i.test(budget)){
+    const max = parseInt(budget.match(/under\s*R?(\d+)/i)[1],10);
+    pool = pool.filter(p=>priceOf(p)<=max);
+  }
+  if(data.size){
+    const s = data.size.toUpperCase();
+    pool = pool.filter(p=>p.sizes.includes(s)||p.sizes.includes('One Size'));
+  }
+  if(data.colours && !/no preference/i.test(data.colours)){
+    const w = data.colours.toLowerCase();
+    pool = pool.filter(p=>p.colours.some(c=>{
+      const cl = c.toLowerCase();
+      if(w.includes('black')||w.includes('neutral')) return /black|ivory|cream|charcoal|grey|gray|white/.test(cl);
+      if(w.includes('pink')||w.includes('rose')) return /rose|pink|champagne/.test(cl);
+      if(w.includes('earth')) return /camel|tan|chocolate|sand|mocha|sage|olive/.test(cl);
+      return true;
+    }));
+  }
+  if(!pool.length) pool = PRODUCTS.filter(p=>p.stock==='In Stock');
+  return pool.sort((a,b)=>b.popularity-a.popularity).slice(0,3);
+}
+
+function startOrderTracking(userText, ctx, intent){
+  if(intent.entities?.orderId) return lookupOrder(intent.entities.orderId);
+  return {content:"I can help you track your order. What's your order number? It starts with 'WC' — for example WC10025.",
+    quickReplies:[{label:'Try WC10025',value:'WC10025'},{label:"I don't have my order number",value:"I don't have my order number"},{label:'Speak to an agent',value:'I want to speak to a human',icon:'👩'}],
+    contextPatch:{currentFlow:'order_tracking', flowStep:1, intent}};
+}
+
+function orderTrackingFlow(userText, ctx){
+  const m = userText.match(/\bW(AC)?C?\d{4,}\b/i);
+  if(!m){
+    if(/don'?t have|no order|het nie/i.test(userText)){
+      return {content:"No problem — I can look it up with the email you used at checkout. What email did you order with? Or would you prefer an agent?",
+        quickReplies:[{label:'Connect me to an agent',value:'I want to speak to a human',icon:'👩'}],
+        contextPatch:{currentFlow:'escalation', flowStep:1}};
+    }
+    return {content:"That doesn't look like a valid order number. Order numbers start with 'WC' followed by digits. Could you try again?",
+      quickReplies:[{label:'Speak to an agent',value:'I want to speak to a human',icon:'👩'}]};
+  }
+  return lookupOrder(m[0].toUpperCase());
+}
+
+function lookupOrder(orderId){
+  const order = ORDERS.find(o=>o.orderId.toUpperCase()===orderId.toUpperCase());
+  if(!order){
+    return {content:`I couldn't find an order with the number ${orderId}. Please double-check and try again.`,
+      quickReplies:[{label:'Try again',value:'Track my order'},{label:'Speak to an agent',value:'I want to speak to a human',icon:'👩'}],
+      contextPatch:{currentFlow:null, flowStep:0}};
+  }
+  const itemLines = order.items.map(i=>`• ${i.name} (${i.size}, ${i.colour}) ×${i.qty}`).join('\n');
+  return wrapEndOfHelp({
+    content:`I found your order!\n\n**Order #${order.orderId}**\n**Status:** ${order.status}\n**Estimated delivery:** ${order.estimatedDelivery}\n**Delivery method:** ${order.deliveryMethod}\n\n**Items:**\n${itemLines}\n\n**Tracking number:** ${order.trackingNumber}\n**Total:** ${money(order.total)}`,
+    attachments:[{type:'order-card', payload:order}],
+    quickReplies:[{label:'Speak to an agent',value:'I want to speak to a human',icon:'👩'}],
+    contextPatch:{orderId:order.orderId, currentFlow:null, flowStep:0}
+  });
+}
+
+function startReturns(userText, ctx, intent){
+  const orderMatch = userText.match(/\bW(AC)?C?\d{4,}\b/i);
+  const data = {};
+  if(orderMatch) data.orderId = orderMatch[0].toUpperCase();
+  return {content:`I'm sorry the item isn't quite right. Here's our return policy:\n\n• Items can be returned within **${RETURNS.windowDays} days** of delivery\n• Items must be unworn, with original tags attached, in their original packaging\n• ${RETURNS.nonReturnable}\n• Change-of-mind returns: courier fee is R99\n• Faulty or wrong item: we cover the courier cost\n\nWould you like a **refund** or an **exchange**?`,
+    quickReplies:[{label:'I want a refund',value:'I want a refund'},{label:'I want an exchange',value:'I want an exchange'},{label:'The item is damaged',value:'The item arrived damaged'},{label:'My size doesn\'t fit',value:'My size doesn\'t fit'},{label:'Speak to an agent',value:'I want to speak to a human',icon:'👩'}],
+    contextPatch:{currentFlow:'returns', flowStep:1, flowData:data, intent}};
+}
+
+function returnsFlow(userText, ctx){
+  const step = ctx.flowStep || 1;
+  const data = {...ctx.flowData};
+  if(step===1){
+    data.reason = userText.trim();
+    return {content:`Got it — ${userText.trim().toLowerCase()}. Could you share your order number so I can look it up? It starts with 'WC'.`,
+      quickReplies:[{label:'WC10025',value:'WC10025'},{label:"I don't have it",value:"I don't have my order number"}],
+      contextPatch:{flowStep:2, flowData:data}};
+  }
+  if(step===2){
+    const m = userText.match(/\bW(AC)?C?\d{4,}\b/i);
+    if(m) data.orderId = m[0].toUpperCase();
+    else if(/don'?t have/i.test(userText)) data.orderId='unknown';
+    else return {content:"That doesn't look like a valid order number. Could you try again?"};
+    if(data.reason && /damaged|broken|faulty|wrong|incorrect|doesn'?t fit/i.test(data.reason)){
+      if(/doesn'?t fit/i.test(data.reason)){
+        return wrapEndOfHelp({content:`No problem — a size exchange is free, and each order qualifies for **one free size exchange**.\n\nYou can request it via **My Orders**, or I can help you start it. What size would you like instead?`,
+          quickReplies:[{label:'XS',value:'Exchange to size XS'},{label:'S',value:'Exchange to size S'},{label:'M',value:'Exchange to size M'},{label:'L',value:'Exchange to size L'},{label:'XL',value:'Exchange to size XL'}],
+          contextPatch:{currentFlow:null, flowStep:0}});
+      }
+      return {content:"I'm sorry about that — receiving a damaged or incorrect item isn't okay. We'll cover the return shipping and prioritise your replacement.\n\nWould you like to speak to a human agent to fast-track this?",
+        quickReplies:[{label:'Yes, connect me',value:'I want to speak to a human',icon:'👩'},{label:'No, email me instead',value:'Email me instead'}],
+        contextPatch:{currentFlow:'escalation', flowStep:1, issue:data.reason, orderId:data.orderId}};
+    }
+    const order = data.orderId!=='unknown' ? ORDERS.find(o=>o.orderId===data.orderId) : null;
+    if(order){
+      return wrapEndOfHelp({content:`Thanks — I found order **${order.orderId}** (${order.items.map(i=>i.name).join(', ')}).\n\nHere's what happens next:\n${RETURNS.process.map((s,i)=>`${i+1}. ${s}`).join('\n')}\n\nI've started a return request for you.`,
+        contextPatch:{currentFlow:null, flowStep:0}});
+    }
+    return wrapEndOfHelp({content:`No problem — I'll still start a return request for you.\n\n${RETURNS.process.map((s,i)=>`${i+1}. ${s}`).join('\n')}`,
+      contextPatch:{currentFlow:null, flowStep:0}});
+  }
+  return fallback();
+}
+
+function startSizeFlow(ctx){
+  return {content:"I can help you find your perfect size! What size do you usually wear?",
+    quickReplies:['XS','S','M','L','XL'].map(s=>({label:s,value:s})).concat([{label:'Not sure',value:'Not sure'}]),
+    contextPatch:{currentFlow:'size', flowStep:1, flowData:{}}};
+}
+
+function sizeFlow(userText, ctx){
+  const step = ctx.flowStep || 1;
+  const data = {...ctx.flowData};
+  if(step===1){ data.usualSize = userText.trim();
+    return {content:'Great. What is your height?',
+      quickReplies:[{label:'Under 1.55m',value:'1.5'},{label:'1.55 – 1.65m',value:'1.6'},{label:'1.65 – 1.75m',value:'1.7'},{label:'Over 1.75m',value:'1.8'}],
+      contextPatch:{flowStep:2, flowData:data}};
+  }
+  if(step===2){ data.height = userText.trim();
+    return {content:"And your bust measurement? You can skip if unsure.",
+      quickReplies:[{label:'Skip',value:'skip'},{label:'81–84 cm',value:'82'},{label:'86–89 cm',value:'88'},{label:'91–94 cm',value:'92'}],
+      contextPatch:{flowStep:3, flowData:data}};
+  }
+  if(step===3){ if(userText.toLowerCase()!=='skip') data.bust = userText.trim();
+    return {content:"And your waist measurement?",
+      quickReplies:[{label:'Skip',value:'skip'},{label:'63–66 cm',value:'65'},{label:'68–71 cm',value:'70'},{label:'73–76 cm',value:'75'}],
+      contextPatch:{flowStep:4, flowData:data}};
+  }
+  if(step===4){ if(userText.toLowerCase()!=='skip') data.waist = userText.trim();
+    return {content:'Last one — how do you like your clothes to fit?',
+      quickReplies:[{label:'Fitted',value:'Fitted'},{label:'True to size',value:'True to size'},{label:'Relaxed',value:'Relaxed'}],
+      contextPatch:{flowStep:5, flowData:data}};
+  }
+  data.fit = userText.trim();
+  const rec = estimateSize(data);
+  return wrapEndOfHelp({
+    content:`Based on what you've told me, I'd recommend a **${rec.size}** (${rec.reasoning}).\n\nThis is an **estimate** — sizing varies between styles, so please check the product's size guide.\n\n🔒 Your measurements are kept private and never shared with third parties.`,
+    attachments:[{type:'size-guide', payload:SIZE_GUIDE}],
+    quickReplies:[{label:'View size guide',value:'View size guide',icon:'📏'},{label:`Show products in size ${rec.size}`,value:`Show me products in size ${rec.size}`}],
+    contextPatch:{currentFlow:null, flowStep:0, flowData:{}}
+  });
+}
+
+function estimateSize(data){
+  const usual = (data.usualSize||'').toUpperCase();
+  const fit = (data.fit||'').toLowerCase();
+  let size = 'M';
+  if(['XS','S','M','L','XL'].includes(usual)) size = usual;
+  if(fit.includes('relaxed')||fit.includes('oversized')){
+    const order = ['XS','S','M','L','XL'];
+    const idx = order.indexOf(size);
+    if(idx>=0 && idx<order.length-1) size = order[idx+1];
+  }
+  return {size, reasoning: `your usual size is ${usual||'between sizes'}, and you prefer a ${fit||'true-to-size'} fit`};
+}
+
+function deliveryInfo(userText){
+  const t2 = (userText||'').toLowerCase();
+  if(/weekend|saturday|naweek|saterdag/.test(t2)){
+    return {content:`Yes — Saturday deliveries are available in major cities at **no additional charge**. 🚚\n\nPlease share your postcode and I can check whether Saturday delivery is available in your area.`,
+      quickReplies:[{label:'Speak to an agent',value:'I want to speak to a human',icon:'👩'}]};
+  }
+  if(/international|namibia|botswana|outside/.test(t2)){
+    return {content:`Not at the moment — Wendy's & Co. currently delivers within **South Africa only**.\n\nInternational delivery to **Namibia and Botswana** is planned for December. ✈️`,
+      quickReplies:[{label:'Speak to an agent',value:'I want to speak to a human',icon:'👩'}]};
+  }
+  if(/supposed to arrive|delayed|late|laat/.test(t2)){
+    return {content:`I'm sorry your order is delayed. Could you share your order number so I can check its latest delivery status?\n\nOrders are normally delivered within **3–5 business days**.`,
+      quickReplies:[{label:'WC10025',value:'WC10025'},{label:'Speak to an agent',value:'I want to speak to a human',icon:'👩'}]};
+  }
+  return {content:`Here's our delivery info:\n\n• **Cape Town:** 1–2 working days\n• **Rest of South Africa:** 3–5 working days\n• **Flat delivery fee:** R99\n• **Free delivery:** on orders over R${DELIVERY.freeThreshold}\n• **Saturday deliveries:** available in major cities at no extra charge\n\nWe deliver **nationwide across South Africa**. International delivery to Namibia and Botswana is planned for December. ✈️`,
+    quickReplies:[{label:'Deliver on weekends?',value:'Do you deliver on weekends?'},{label:'Speak to an agent',value:'I want to speak to a human',icon:'👩'}]};
+}
+
+function paymentInfo(userText){
+  const t2 = (userText||'').toLowerCase();
+  if(/declined|failed|unsuccessful/.test(t2)){
+    return {content:`I'm sorry your payment was unsuccessful. Please check that your payment details are correct and that your bank has approved the transaction. You can also try another available payment method.\n\nIf the problem continues, I can connect you with our support team.`,
+      quickReplies:[{label:'Connect me',value:'I want to speak to a human',icon:'👩'}]};
+  }
+  if(/payflex/.test(t2)){
+    return {content:`Yes! **PayFlex** is available for orders between **R300 and R3,000** — buy now, pay later in four interest-free payments. 💳`,
+      quickReplies:[{label:'Other payment methods',value:'What payment methods do you accept?'}]};
+  }
+  if(/voucher|coupon|code/.test(t2)){
+    return {content:`Check whether the voucher has expired and whether your order meets the required minimum spend. Only **one voucher code** can be used per order. 🎟️`,
+      quickReplies:[{label:'Speak to an agent',value:'I want to speak to a human',icon:'👩'}]};
+  }
+  return {content:`We use **Paystack** and accept the following payment methods:\n\n• Card\n• EFT\n• Capitec Pay\n• PayFlex (buy now, pay later — R300 to R3,000)\n\n🔒 ${PAYMENTS.security}`,
+    quickReplies:[{label:'Is PayFlex available?',value:'Is PayFlex available?'},{label:'Payment declined',value:'My payment was declined'},{label:'Speak to an agent',value:'I want to speak to a human',icon:'👩'}]};
+}
+
+function storeInfo(){
+  return {content:`📍 **Studio:** ${CONTACT.studio}\n📧 **Email:** ${CONTACT.email}\n📞 **WhatsApp/Call:** ${CONTACT.whatsapp}\n🕐 **Hours:** ${CONTACT.hours}\n\n📷 **Instagram:** ${CONTACT.instagram}\n🌐 **Website:** ${CONTACT.website}\n\nThe online store is available **24/7**, so you can shop anytime!`,
+    quickReplies:[{label:'Are you open now?',value:'Are you open now?'},{label:'Speak to an agent',value:'I want to speak to a human',icon:'👩'}]};
+}
+
+function privacyInfo(){
+  return {content:`Yes — your measurements are kept **private** and are never shared with third parties.\n\nThey're used only to assist you with sizing and product recommendations. 🔒`,
+    quickReplies:[{label:'Speak to an agent',value:'I want to speak to a human',icon:'👩'}]};
+}
+
+function startEscalation(ctx){
+  if(state.user){
+    return {content:`I can connect you with a customer service agent, ${state.user.name}. What's the **reason** for your request?`,
+      quickReplies:[{label:'Return / exchange',value:'Return or exchange'},{label:'Order issue',value:'Problem with my order'},{label:'Complaint',value:'Complaint'},{label:'Other',value:'Other'}],
+      contextPatch:{currentFlow:'escalation', flowStep:4, escalationRequested:true, customerName:state.user.name, customerEmail:state.user.email, collectedFields:{name:state.user.name, email:state.user.email}}};
+  }
+  if(ctx.customerName && ctx.customerEmail) return createTicket(ctx);
+  return {content:"Of course — I can connect you with a customer service agent. Could I get a few details?\n\nFirst, what's your **name**?",
+    contextPatch:{currentFlow:'escalation', flowStep:1, escalationRequested:true}};
+}
+
+function escalationFlow(userText, ctx){
+  const step = ctx.flowStep || 1;
+  const fields = {...ctx.collectedFields};
+  if(step===1){ fields.name = userText.trim();
+    return {content:`Thanks, ${fields.name}! What's the best **email address** to reach you on?`,
+      contextPatch:{flowStep:2, collectedFields:fields}};
+  }
+  if(step===2){
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(userText.trim())) return {content:"That doesn't look like a valid email. Could you double-check?"};
+    fields.email = userText.trim();
+    return {content:"Got it. And a **phone number** (optional)?",
+      quickReplies:[{label:'Skip',value:'skip'}],
+      contextPatch:{flowStep:3, collectedFields:fields}};
+  }
+  if(step===3){
+    if(userText.toLowerCase()!=='skip') fields.phone = userText.trim();
+    return {content:"What's the **reason** for your request?",
+      quickReplies:[{label:'Return / exchange',value:'Return or exchange'},{label:'Order issue',value:'Problem with my order'},{label:'Product question',value:'Product question'},{label:'Complaint',value:'Complaint'},{label:'Other',value:'Other'}],
+      contextPatch:{flowStep:4, collectedFields:fields}};
+  }
+  if(step===4){ fields.reason = userText.trim();
+    return {content:"Do you have an **order number** related to this? (optional)",
+      quickReplies:[{label:'Skip',value:'skip'}],
+      contextPatch:{flowStep:5, collectedFields:fields}};
+  }
+  if(step===5){
+    if(userText.toLowerCase()!=='skip') fields.orderId = userText.trim();
+    const newCtx = {...ctx, collectedFields:fields, customerName:fields.name||state.user?.name, customerEmail:fields.email||state.user?.email, customerPhone:fields.phone, issue:fields.reason, orderId:fields.orderId};
+    return createTicket(newCtx);
+  }
+  return fallback();
+}
+
+function createTicket(ctx){
+  const ticketId = 'WC-SUPPORT-' + (1000 + Math.floor(Math.random()*9000));
+  const ticket = {
+    ticketId,
+    customerName: ctx.customerName || ctx.collectedFields.name || 'Guest',
+    customerEmail: ctx.customerEmail || ctx.collectedFields.email || '',
+    customerPhone: ctx.customerPhone || ctx.collectedFields.phone || '',
+    issue: ctx.issue || ctx.collectedFields.reason || 'General enquiry',
+    orderId: ctx.orderId || ctx.collectedFields.orderId || '',
+    priority: 'Normal', status: 'Waiting',
+    createdAt: new Date().toISOString(),
+    assignedAgent: null,
+    summary: generateSummary(ctx),
+    userId: state.user?.id || null,
+    language: state.chat.lang
+  };
+  state.chat.tickets.unshift(ticket);
+  saveTickets(state.chat.tickets);
+  saveConversation();
+  renderTickets(); renderAdminStats(); renderUsers();
+  return {content:`Perfect — I've created your support ticket:\n\n**Ticket:** ${ticketId}\n**Status:** Waiting for agent\n**Priority:** Normal\n\nYour request has been sent to our team. An agent will join shortly.`,
+    attachments:[{type:'ticket', payload:ticket}],
+    quickReplies:[{label:'View my ticket',value:'View my ticket'},{label:'Start a new conversation',value:'Start new conversation'}]};
+}
+
+function generateSummary(ctx){
+  const name = ctx.customerName || ctx.collectedFields.name || 'Customer';
+  const issue = ctx.issue || ctx.collectedFields.reason || 'enquiry';
+  const order = ctx.orderId || ctx.collectedFields.orderId;
+  return `${name} needs assistance with: ${issue}.${order?` Order ${order}.`:''}`.trim();
+}
+
+function fallback(){
+  return {content:"I'm not sure about that, and I don't want to give incorrect information. I can connect you with a customer service agent who can help.",
+    quickReplies:[{label:'Connect to agent',value:'I want to speak to a human',icon:'👩'},{label:'Ask something else',value:'Ask something else'}]};
+}
+
+function quickActionReply(action, ctx){
+  switch(action){
+    case 'Find a product': return {content:"Sure! What are you looking for? Tell me the category, colour, occasion or budget.",
+      quickReplies:[{label:'Dresses under R1000',value:'Show me dresses under R1000'},{label:'Jeans',value:'Show me jeans'},{label:'New arrivals',value:'Show me new arrivals'},{label:'Wedding outfit',value:'I have a wedding and need an outfit'}]};
+    case 'Outfit recommendation': return startRecommendation('', ctx, {name:'recommendation', entities:{}});
+    case 'Help me choose a size': return startSizeFlow(ctx);
+    case 'Delivery information': return wrapEndOfHelp(deliveryInfo(''));
+    case 'Track my order': return startOrderTracking('', ctx, {name:'order_tracking', entities:{}});
+    case 'Returns & exchanges': return startReturns('', ctx, {name:'returns', entities:{}});
+    case 'Payment questions': return wrapEndOfHelp(paymentInfo(''));
+    case 'Speak to an agent': return startEscalation(ctx);
+    case 'Start new conversation': {
+      const hour = new Date().getHours();
+      const tod = hour < 12 ? t('goodMorning') : hour < 17 ? t('goodAfternoon') : t('goodEvening');
+      return {content: t('greeting', tod), quickReplies: currentQuickReplies(),
+        contextPatch:{currentFlow:null, flowStep:0, flowData:{}, collectedFields:{}, escalationRequested:false, awaitingFeedback:false}};
+    }
+    default: return fallback();
+  }
+}
+
+function saveConversation(){
+  if(!state.user) return;
+  const convos = loadConversations();
+  const transcript = state.chat.messages.map(m=>({role:m.role, content:m.content, ts:m.timestamp, lang:state.chat.lang}));
+  convos.unshift({
+    id: 'conv-'+Date.now(),
+    userId: state.user.id,
+    userName: state.user.name,
+    userEmail: state.user.email,
+    transcript,
+    language: state.chat.lang,
+    lastMessage: state.chat.messages[state.chat.messages.length-1]?.content || '',
+    createdAt: new Date().toISOString(),
+    escalated: state.chat.tickets.some(t2=>t2.userId===state.user.id)
+  });
+  saveConversations(convos.slice(0,100));
+}
+
+/* ============================================================
+   CHAT OPEN / RENDER
+   ============================================================ */
+function openChat(withGreeting, prefill){
+  state.chat.open = true;
+  $('chatWindow').classList.add('open');
+  $('chatFab').style.display = 'none';
+  $('chatSubtitle').textContent = state.user
+    ? `${t('subtitle')} · ${state.user.name.split(' ')[0]}`
+    : t('subtitle');
+  $('chatInput').placeholder = t('placeholder');
+  $('langBadge').textContent = state.chat.lang === 'SEP' ? 'NSO' : state.chat.lang;
+
+  if(!state.chat.messages.length){
+    const c = state.chat.ctx;
+    const hour = new Date().getHours();
+    const tod = hour < 12 ? t('goodMorning') : hour < 17 ? t('goodAfternoon') : t('goodEvening');
+    let intro = t('greeting', tod);
+    if(c.lastProductId){
+      const p = PRODUCTS.find(x=>x.id===c.lastProductId);
+      if(p) intro = `Hi! I see you're looking at the **${p.name}**. Would you like help choosing a size, colour or styling option?`;
+    }
+    pushAssistant(intro, currentQuickReplies(), null, null, true);
+  }
+  setTimeout(()=>{
+    if(prefill){ $('chatInput').value = prefill; sendChat(); }
+    $('chatInput').focus();
+  }, 120);
+}
+
+function closeChat(){ stopSpeaking(); state.chat.open = false; $('chatWindow').classList.remove('open'); $('chatFab').style.display = 'grid'; saveConversation(); }
+
+function startNewChat(){
+  const firstName = state.user?.name?.split(' ')[0] || '';
+  const ask = firstName
+    ? `Before I reset, ${firstName} — are you sure you want to start a new conversation?`
+    : `Are you sure you want to start a new conversation?`;
+  pushAssistant(ask, [
+    {label:t('yesStartFresh'), value:'Start new conversation', icon:'🔄'},
+    {label:t('keepGoing'), value:'Keep going', icon:'↩'}
+  ]);
+}
+
+function pushAssistant(content, quickReplies, products, attachments, autoSpeak){
+  const msg = {id:uid(), role:'assistant', content, quickReplies, products, attachments, timestamp:Date.now()};
+  state.chat.messages.push(msg);
+  renderChat();
+  if(autoSpeak && state.chat.voiceEnabled) speak(content, msg.id);
+}
+
+function pushUser(content){
+  state.chat.messages.push({id:uid(), role:'user', content, timestamp:Date.now()});
+  renderChat();
+}
+
+function renderChat(){
+  const body = $('chatBody');
+  body.innerHTML = state.chat.messages.map(m=>renderMessage(m)).join('');
+  if(state.chat.typing){
+    body.innerHTML += `<div class="msg assistant typing"><div class="mini-avatar">B</div><div class="bubble"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></div>`;
+  }
+  body.querySelectorAll('[data-qr]').forEach(el=>{
+    el.addEventListener('click', ()=>{ handleQuickAction(el.dataset.qr); });
+  });
+  body.querySelectorAll('[data-speak]').forEach(el=>{
+    el.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      const id = el.dataset.speak;
+      if(state.chat.speech.speakingMsgId === id){ stopSpeaking(); renderChat(); }
+      else {
+        const msg = state.chat.messages.find(m=>m.id===id);
+        if(msg) speak(msg.content, id);
+      }
+    });
+  });
+  body.scrollTop = body.scrollHeight;
+}
+
+function renderMessage(m){
+  const bubbleContent = formatMarkdown(m.content);
+  if(m.role==='user') return `<div class="msg user"><div class="bubble">${bubbleContent}</div></div>`;
+  const speaking = state.chat.speech.speakingMsgId === m.id;
+  let html = `<div class="msg assistant"><div class="mini-avatar">B</div><div style="max-width:100%"><div class="bubble">${bubbleContent}
+    <button class="speak-btn ${speaking?'speaking':''}" data-speak="${m.id}" title="${speaking?'Stop':'Listen'}" aria-label="${speaking?'Stop':'Listen'}">
+      ${speaking
+        ? '<svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>'
+        : '<svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 8.5a4 4 0 010 7"/></svg>'}
+    </button>
+  </div>`;
+  if(m.attachments) for(const a of m.attachments) html += renderAttachment(a);
+  if(m.products) for(const p of m.products) html += renderChatProduct(p);
+  if(m.quickReplies){
+    html += `<div class="quick-replies">` + m.quickReplies.map(q=>
+      `<button class="qr" data-qr="${esc(q.value)}">${q.icon?q.icon+' ':''}${esc(q.label)}</button>`
+    ).join('') + `</div>`;
+  }
+  html += `</div></div>`;
+  return html;
+}
+
+function formatMarkdown(text){
+  let s = esc(text);
+  s = s.replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
+  s = s.replace(/\n/g, '<br>');
+  return s;
+}
+
+function renderAttachment(a){
+  if(a.type==='order-card'){
+    const o = a.payload;
+    const timeline = renderOrderTimeline(o.stageIndex || 0, o.estimatedDelivery);
+    return `<div class="chat-attachment" style="border-left-color:var(--burgundy);background:#fff">
+      <h5 style="color:var(--burgundy)">Order ${o.orderId}</h5>
+      <div class="row"><span>Status</span><strong>${o.status}</strong></div>
+      <div class="row"><span>Est. delivery</span><strong>${o.estimatedDelivery}</strong></div>
+      <div class="row"><span>Tracking</span><strong>${o.trackingNumber}</strong></div>
+      <div class="row"><span>Total</span><strong>${money(o.total)}</strong></div>
+      ${timeline}
+    </div>`;
+  }
+  if(a.type==='size-guide'){
+    const g = a.payload;
+    return `<div class="chat-attachment"><h5>Size Guide</h5>
+      <table class="size-table"><thead><tr>${g.headers.map(h=>`<th>${h}</th>`).join('')}</tr></thead>
+      <tbody>${g.rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+  }
+  if(a.type==='ticket'){
+    const t2 = a.payload;
+    return `<div class="chat-attachment"><h5>Support Ticket ${t2.ticketId}</h5>
+      <div class="row"><span>Status</span><strong>${t2.status}</strong></div>
+      <div class="row"><span>Priority</span><strong>${t2.priority}</strong></div>
+      <div class="row"><span>Issue</span><strong>${esc(t2.issue)}</strong></div></div>`;
+  }
+  return '';
+}
+
+function renderOrderTimeline(stageIndex, estimatedDelivery){
+  const labels = [
+    {name:'Order Confirmed', sub:'Mon 09:14'},
+    {name:'Processing',      sub:'Mon 14:30'},
+    {name:'Shipped',         sub:'Tue 08:05'},
+    {name:'Out for Delivery',sub:'Est. Wed'},
+    {name:'Delivered',       sub:'Est. Thu'}
+  ];
+  if(stageIndex === 2 && estimatedDelivery){
+    labels[3].sub = 'Est. ' + shortDay(new Date(Date.now() + 1*86400000));
+    labels[4].sub = 'Est. ' + shortDay(new Date(Date.now() + 2*86400000));
+  } else if(stageIndex === 4 && estimatedDelivery){
+    labels[3].sub = shortDay(new Date(Date.now() - 1*86400000));
+    labels[4].sub = shortDay(new Date());
+  } else if(stageIndex === 1){
+    labels[2].sub = 'Est. ' + shortDay(new Date(Date.now() + 1*86400000));
+    labels[3].sub = 'Est. ' + shortDay(new Date(Date.now() + 2*86400000));
+    labels[4].sub = 'Est. ' + shortDay(new Date(Date.now() + 3*86400000));
+  }
+  return `<div class="order-timeline">` + labels.map((s,i)=>{
+    let cls = 'pending';
+    if(i < stageIndex) cls = 'done';
+    else if(i === stageIndex) cls = 'current';
+    return `<div class="ot-step ${cls}"><div class="ot-marker"></div><div class="ot-text"><strong>${s.name}</strong><small>${s.sub}</small></div></div>`;
+  }).join('') + `</div>`;
+}
+
+function shortDay(d){
+  const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  return days[d.getDay()];
+}
+
+function renderChatProduct(p){
+  return `<div class="chat-product"><img src="${p.image}" alt="${esc(p.name)}">
+    <div class="chat-product-info">
+      <strong>${esc(p.name)}</strong>
+      <span class="stars">${stars(p.rating)} ${p.rating}</span>
+      <span class="price">${p.salePrice?`<del style="color:var(--muted);font-weight:400">${money(p.price)}</del> `:''}${money(priceOf(p))}</span>
+      <div class="chat-product-actions">
+        <button class="view" onclick="openProduct('${p.id}')">View</button>
+        <button class="add" onclick="quickAdd('${p.id}')">Add to cart</button>
+      </div>
+    </div></div>`;
+}
+
+function handleQuickAction(val){
+  const firstName = state.user?.name?.split(' ')[0] || '';
+
+  if(/^no thanks$/i.test(val)){
+    pushUser(t('noThanks'));
+    pushAssistant(t('farewell', firstName), [
+      {label:t('startNew'), value:'Start new conversation', icon:'🔄'},
+      {label:t('browse'), value:'Show me more products', icon:'🛍'},
+      {label:t('closeChat'), value:'Close chat', icon:'✕'}
+    ], null, null, true);
+    state.chat.ctx.currentFlow = null;
+    state.chat.ctx.flowStep = 0;
+    state.chat.ctx.flowData = {};
+    state.chat.ctx.awaitingFeedback = false;
+    return;
+  }
+
+  if(/^i still need help$/i.test(val)){
+    pushUser(t('yesHelp'));
+    pushAssistant(`Of course${firstName?`, ${firstName}`:''} — I'm here to help. What would you like to do next?`, currentQuickReplies(), null, null, true);
+    state.chat.ctx.awaitingFeedback = false;
+    return;
+  }
+
+  if(/^start new conversation$/i.test(val)){
+    pushUser(t('startNew'));
+    state.chat.messages = [];
+    state.chat.ctx = {intent:null,lastProductId:null,lastProducts:null,orderId:null,customerName:null,customerEmail:null,customerPhone:null,issue:null,collectedFields:{},escalationRequested:false,currentFlow:null,flowStep:0,flowData:{},awaitingFeedback:false};
+    $('chatBody').innerHTML = '';
+    const hour = new Date().getHours();
+    const tod = hour < 12 ? t('goodMorning') : hour < 17 ? t('goodAfternoon') : t('goodEvening');
+    pushAssistant(t('greeting', tod), currentQuickReplies(), null, null, true);
+    toast('New conversation started');
+    return;
+  }
+
+  if(/^keep going$/i.test(val)){
+    pushUser(t('keepGoing'));
+    pushAssistant(`Great${firstName?`, ${firstName}`:''} — continuing our conversation. What would you like to do next?`,
+      [{label:'Find a product',value:'Find a product',icon:'🛍'},
+       {label:'Track my order',value:'Track my order',icon:'📦'},
+       {label:'Speak to an agent',value:'Speak to an agent',icon:'👩'}], null, null, true);
+    return;
+  }
+
+  if(/^close chat$/i.test(val)){
+    pushUser(t('closeChat'));
+    pushAssistant(`Thank you for chatting with us${firstName?`, ${firstName}`:''}! 💕 Have a lovely day.`, null, null, null, true);
+    setTimeout(()=>closeChat(), 1400);
+    return;
+  }
+
+  $('chatInput').value = val;
+  sendChat();
+}
+
+function sendChat(){
+  const input = $('chatInput');
+  const text = input.value.trim();
+  if(!text) return;
+  input.value = '';
+  input.style.height = 'auto';
+  pushUser(text);
+  processChat(text);
+}
+
+function processChat(text){
+  const ctx = state.chat.ctx;
+  const intent = detectIntent(text);
+  ctx.intent = intent;
+
+  if(/^start new conversation$/i.test(text)){ handleQuickAction('Start new conversation'); return; }
+  if(/^ask something else$/i.test(text)){
+    pushAssistant("Sure — what would you like to ask?",
+      [{label:'Find a product',value:'Find a product',icon:'🛍'},
+       {label:'Track my order',value:'Track my order',icon:'📦'},
+       {label:'Speak to an agent',value:'Speak to an agent',icon:'👩'}], null, null, true);
+    return;
+  }
+  if(/^no thanks$/i.test(text) || /^no,? that'?s all/i.test(text)){ handleQuickAction('No thanks'); return; }
+  if(/^yes,? i need more help/i.test(text)){ handleQuickAction('I still need help'); return; }
+  if(/^keep going$/i.test(text)){ handleQuickAction('Keep going'); return; }
+  if(/^view my ticket$/i.test(text)){
+    const t2 = state.chat.tickets[0];
+    if(t2) pushAssistant(`Here's your ticket again:`, null, null, [{type:'ticket', payload:t2}], true);
+    else pushAssistant("I don't see an open ticket yet. Would you like me to connect you with an agent?", [{label:'Yes, connect me',value:'I want to speak to a human',icon:'👩'}], null, null, true);
+    return;
+  }
+  if(/^show me products in size (.+)$/i.test(text)){
+    const size = text.match(/size\s+(\S+)/i)[1].toUpperCase();
+    const matches = PRODUCTS.filter(p=>p.sizes.includes(size)).slice(0,3);
+    if(matches.length) pushAssistant(`Here are some pieces available in size **${size}**:`, null, matches, null, true);
+    else pushAssistant(`I couldn't find products in size ${size} right now.`, null, null, null, true);
+    return;
+  }
+  if(/^view size guide$/i.test(text)){ pushAssistant("Here's our size guide:", null, null, [{type:'size-guide', payload:SIZE_GUIDE}], true); return; }
+  if(/^add to cart$/i.test(text)){
+    const products = ctx.lastProducts || (ctx.lastProductId ? [PRODUCTS.find(p=>p.id===ctx.lastProductId)] : null);
+    if(products && products[0]){
+      const p = products[0];
+      pushAssistant(`Great choice! The **${p.name}** — what size would you like?`, p.sizes.map(s=>({label:s,value:`Size ${s}`})), null, null, true);
+      ctx.currentFlow = 'add_to_cart'; ctx.flowStep = 1; ctx.flowData = {productId:p.id};
+    } else pushAssistant("Sure — which product would you like to add?", null, null, null, true);
+    return;
+  }
+  if(ctx.currentFlow==='add_to_cart' && ctx.flowStep===1){
+    const size = text.replace(/^size\s+/i,'').trim();
+    const p = PRODUCTS.find(x=>x.id===ctx.flowData.productId);
+    if(p){
+      const colour = p.colours[0];
+      addToCart(p.id, size, colour, 1);
+      pushAssistant(`Done! I've added the **${size} ${colour} ${p.name}** to your cart. Anything else?`,
+        [{label:'View cart',value:'View my cart'},{label:'Continue shopping',value:'Show me more products'}], null, null, true);
+    }
+    ctx.currentFlow = null; ctx.flowStep = 0; ctx.flowData = {};
+    return;
+  }
+  if(/^view my cart$/i.test(text)){ openCart(); pushAssistant("I've opened your cart. Anything else? ✨", null, null, null, true); return; }
+  if(/^show me more products$/i.test(text)){ pushAssistant("Here's a selection — browse the shop for more.", null, PRODUCTS.slice(0,3), null, true); return; }
+  if(/^let me explain$/i.test(text)){ pushAssistant("Of course — please share what's going on and I'll do my best to help.", null, null, null, true); return; }
+  if(/^email me instead$/i.test(text)){ pushAssistant("Noted — our team will email you within 24 hours.", null, null, null, true); return; }
+  if(/^i need account help$/i.test(text)){
+    pushAssistant("Of course! I can help with account-related questions — or connect you to a consultant. What do you need help with?",
+      [{label:'Reset password',value:'Reset password'},{label:'Change email',value:'Change my email'},{label:'Speak to a consultant',value:'Speak to an agent',icon:'👩'}], null, null, true);
+    return;
+  }
+
+  if(/^find a product$/i.test(text)) return applyReply(quickActionReply('Find a product', ctx));
+  if(/^outfit recommendation$/i.test(text)) return applyReply(quickActionReply('Outfit recommendation', ctx));
+  if(/^help me choose a size$/i.test(text)) return applyReply(quickActionReply('Help me choose a size', ctx));
+  if(/^delivery information$/i.test(text)) return applyReply(quickActionReply('Delivery information', ctx));
+  if(/^track my order$/i.test(text)) return applyReply(quickActionReply('Track my order', ctx));
+  if(/^returns & exchanges$/i.test(text)) return applyReply(quickActionReply('Returns & exchanges', ctx));
+  if(/^payment questions$/i.test(text)) return applyReply(quickActionReply('Payment questions', ctx));
+  if(/^speak to an agent$/i.test(text)) return applyReply(quickActionReply('Speak to an agent', ctx));
+
+  const reply = runEngine(text, ctx, intent);
+  applyReply(reply);
+}
+
+function applyReply(reply){
+  state.chat.typing = true;
+  renderChat();
+  const delay = 500 + Math.random()*500;
+  setTimeout(()=>{
+    state.chat.typing = false;
+    if(reply.contextPatch) Object.assign(state.chat.ctx, reply.contextPatch);
+    pushAssistant(reply.content, reply.quickReplies, reply.products, reply.attachments, true);
+  }, delay);
+}
+
+function switchAccountTab(tab){
+  document.querySelectorAll('.account-menu li[data-tab]').forEach(li=>{
+    li.classList.toggle('active', li.dataset.tab===tab);
+  });
+  renderAccountTab(tab);
+}
+
+function renderAccount(){
+  if(!state.user) return;
+  $('accountAvatar').textContent = state.user.name.charAt(0).toUpperCase();
+  $('accountName').textContent = state.user.name;
+  $('accountEmail').textContent = state.user.email;
+  const active = document.querySelector('.account-menu li.active')?.dataset.tab || 'profile';
+  renderAccountTab(active);
+}
+
+function renderAccountTab(tab){
+  const panel = $('accountPanel');
+  const u = state.user;
+  if(!u) return;
+  if(tab==='profile'){
+    panel.innerHTML = `
+      <h2 style="font-size:1.5rem;margin-bottom:8px">Your Profile</h2>
+      <p style="color:var(--muted);font-size:.9rem;margin-bottom:24px">Manage your details below.</p>
+      <div class="form-row"><label>Full name</label><input value="${esc(u.name)}" readonly></div>
+      <div class="form-row"><label>Email address</label><input value="${esc(u.email)}" readonly></div>
+      <div class="form-row"><label>Account type</label><input value="${esc(u.role==='admin'?'Administrator':'Customer')}" readonly></div>
+      <div class="form-row"><label>Member since</label><input value="${new Date(u.createdAt).toLocaleDateString()}" readonly></div>
+      <button class="btn btn-ghost btn-sm" onclick="toast('Demo — profile editing disabled')">Edit profile</button>`;
+  } else if(tab==='orders'){
+    const mine = ORDERS.filter(o=>o.customerEmail===u.email);
+    if(!mine.length){ panel.innerHTML = `<h2 style="font-size:1.5rem;margin-bottom:8px">My Orders</h2><p style="color:var(--muted);font-size:.9rem;margin:20px 0">You haven't placed any orders yet.</p><button class="btn btn-primary btn-sm" onclick="showView('shop')">Start shopping</button>`; return; }
+    panel.innerHTML = `<h2 style="font-size:1.5rem;margin-bottom:8px">My Orders</h2><p style="color:var(--muted);font-size:.9rem;margin-bottom:24px">${mine.length} order${mine.length===1?'':'s'} found.</p>` +
+      mine.map(o=>`<div class="order-card">
+        <div class="head"><span class="oid">${o.orderId}</span><span class="badge ${o.status==='Delivered'?'resolved':o.status==='Delayed'?'escalated':'waiting'}">${o.status}</span></div>
+        <ul class="items">${o.items.map(i=>`<li>• ${esc(i.name)} (${esc(i.size)}, ${esc(i.colour)}) ×${i.qty}</li>`).join('')}</ul>
+        <div style="display:flex;justify-content:space-between;margin-top:12px;font-size:.85rem">
+          <span style="color:var(--muted)">Est. delivery: <strong style="color:var(--ink)">${o.estimatedDelivery}</strong></span>
+          <strong>${money(o.total)}</strong>
+        </div>
+        ${renderOrderTimeline(o.stageIndex || 0, o.estimatedDelivery)}
+        <button class="btn btn-ghost btn-sm" style="margin-top:12px" onclick="openChat(true,'Where is my order ${o.orderId}?')">Track with Bella</button>
+      </div>`).join('');
+  } else if(tab==='tickets'){
+    const mine = state.chat.tickets.filter(t2=>t2.customerEmail===u.email || t2.userId===u.id);
+    if(!mine.length){ panel.innerHTML = `<h2 style="font-size:1.5rem;margin-bottom:8px">Support Tickets</h2><p style="color:var(--muted);font-size:.9rem;margin:20px 0">No support tickets yet.</p><button class="btn btn-rose btn-sm" onclick="openChat(true,'I want to speak to a human')">Talk to Bella</button>`; return; }
+    panel.innerHTML = `<h2 style="font-size:1.5rem;margin-bottom:8px">Support Tickets</h2><p style="color:var(--muted);font-size:.9rem;margin-bottom:24px">${mine.length} ticket${mine.length===1?'':'s'}.</p>` +
+      mine.map(t2=>`<div class="order-card">
+        <div class="head"><span class="oid">${t2.ticketId}</span><span class="badge ${t2.status==='Resolved'?'resolved':t2.status==='Waiting'?'waiting':'progress'}">${t2.status}</span></div>
+        <div style="font-size:.88rem;margin-bottom:8px"><strong>Issue:</strong> ${esc(t2.issue)}</div>
+        ${t2.orderId?`<div style="font-size:.85rem;color:var(--muted)"><strong>Order:</strong> ${esc(t2.orderId)}</div>`:''}
+        <div style="font-size:.82rem;color:var(--muted);margin-top:8px">Created ${new Date(t2.createdAt).toLocaleString()}</div>
+      </div>`).join('');
+  } else if(tab==='wishlist'){
+    const items = PRODUCTS.filter(p=>state.wishlist.has(p.id));
+    if(!items.length){ panel.innerHTML = `<h2 style="font-size:1.5rem;margin-bottom:8px">My Wishlist</h2><p style="color:var(--muted);font-size:.9rem;margin:20px 0">Your wishlist is empty.</p><button class="btn btn-primary btn-sm" onclick="showView('shop')">Browse products</button>`; return; }
+    panel.innerHTML = `<h2 style="font-size:1.5rem;margin-bottom:8px">My Wishlist</h2><p style="color:var(--muted);font-size:.9rem;margin-bottom:24px">${items.length} item${items.length===1?'':'s'} saved.</p><div class="product-grid">${items.map(productCardHTML).join('')}</div>`;
+  }
+}
+
+function renderAdmin(){ renderAdminStats(); renderUsers(); renderTickets(); }
+
+function renderAdminStats(){
+  const total = state.chat.stats.conversations + loadConversations().length;
+  const ai = state.chat.stats.aiResolved;
+  const esc = state.chat.tickets.length;
+  const rate = Math.round((ai/Math.max(total,1))*100);
+  $('adminStats').innerHTML = `
+    <div class="stat"><small>Total conversations</small><strong>${total}</strong><div class="sub">All-time sessions</div></div>
+    <div class="stat"><small>AI resolved</small><strong>${ai}</strong><div class="sub">${rate}% resolution rate</div><div class="bar"><span style="width:${rate}%"></span></div></div>
+    <div class="stat"><small>Escalated</small><strong>${esc}</strong><div class="sub">Handed to agents</div><div class="bar"><span style="width:${Math.min(100,esc*5)}%;background:var(--gold)"></span></div></div>
+    <div class="stat"><small>Open tickets</small><strong>${state.chat.tickets.filter(t2=>t2.status!=='Resolved').length}</strong><div class="sub">Awaiting agents</div></div>
+    <div class="stat"><small>Avg. response</small><strong>1.2s</strong><div class="sub">Median latency</div></div>
+    <div class="stat"><small>Satisfaction</small><strong>4.7★</strong><div class="sub">Across all sessions</div></div>
+  `;
+}
+
+function renderUsers(){
+  const users = loadUsers();
+  $('userCount').textContent = `${users.length} users`;
+  if(!users.length){ $('userList').innerHTML = `<div style="padding:40px 24px;text-align:center;color:var(--muted);font-size:.9rem">No registered users yet.</div>`; return; }
+  $('userList').innerHTML = users.map(u=>`
+    <div class="ticket" style="grid-template-columns:50px 1fr 220px 130px 180px" onclick="viewUser('${u.id}')" oncontextmenu="event.preventDefault()">
+      <div class="user-avatar" style="width:36px;height:36px;font-size:.9rem">${u.name.charAt(0).toUpperCase()}</div>
+      <div><strong style="font-size:.88rem">${esc(u.name)}</strong><div class="small">${esc(u.email)}</div></div>
+      <div class="small">${u.role==='admin'?'🛡 Administrator':'👤 Customer'}</div>
+      <div class="small">${new Date(u.createdAt).toLocaleDateString()}</div>
+      <div><span class="badge new">Active</span></div>
+    </div>`).join('');
+}
+
+function viewUser(id){
+  const u = loadUsers().find(x=>x.id===id);
+  if(!u) return;
+  const convos = loadConversations().filter(c=>c.userId===u.id);
+  const tickets = state.chat.tickets.filter(t2=>t2.userId===u.id || t2.customerEmail===u.email);
+  alert(`User: ${u.name}\nEmail: ${u.email}\nRole: ${u.role}\nJoined: ${new Date(u.createdAt).toLocaleDateString()}\n\nConversations: ${convos.length}\nTickets: ${tickets.length}`);
+}
+
+function renderTickets(){
+  const list = state.chat.tickets;
+  $('ticketCount').textContent = `${list.filter(t2=>t2.status!=='Resolved').length} open`;
+  if(!list.length){ $('ticketList').innerHTML = `<div style="padding:50px 24px;text-align:center;color:var(--muted);font-size:.9rem">No tickets yet. Ask the chatbot to <b>speak to an agent</b> to create one.</div>`; return; }
+  $('ticketList').innerHTML = list.map(t2=>{
+    const cls = {'New':'new','Waiting':'waiting','In Progress':'progress','Escalated':'escalated','Resolved':'resolved'}[t2.status] || 'new';
+    const time = new Date(t2.createdAt).toLocaleTimeString('en-ZA',{hour:'2-digit',minute:'2-digit'});
+    return `<div class="ticket" onclick="viewTicket('${t2.ticketId}')" oncontextmenu="event.preventDefault()">
+      <span class="tid">${t2.ticketId}</span>
+      <span class="issue">${esc(t2.customerName)} — ${esc(t2.issue)}</span>
+      <span class="small">${t2.orderId||'No order'}</span>
+      <span><span class="badge ${cls}">${t2.status}</span></span>
+      <span class="small">${time}</span>
+      <span><button class="btn btn-ghost btn-sm" onclick="event.stopPropagation();resolveTicket('${t2.ticketId}')">${t2.status==='Resolved'?'Reopen':'Resolve'}</button></span>
+    </div>`;
+  }).join('');
+}
+
+function viewTicket(id){
+  const t2 = state.chat.tickets.find(x=>x.ticketId===id);
+  if(!t2) return;
+  alert(`Ticket: ${t2.ticketId}\n\nCustomer: ${t2.customerName}\nEmail: ${t2.customerEmail}\nPhone: ${t2.customerPhone||'—'}\nIssue: ${t2.issue}\nOrder: ${t2.orderId||'—'}\nStatus: ${t2.status}\nPriority: ${t2.priority}\nLanguage: ${t2.language||'EN'}\nCreated: ${new Date(t2.createdAt).toLocaleString()}\n\nSummary:\n${t2.summary}`);
+}
+
+function resolveTicket(id){
+  const t2 = state.chat.tickets.find(x=>x.ticketId===id);
+  if(!t2) return;
+  t2.status = t2.status==='Resolved' ? 'Waiting' : 'Resolved';
+  saveTickets(state.chat.tickets);
+  renderTickets(); renderAdminStats();
+  toast(t2.status==='Resolved'?'Ticket resolved ✓':'Ticket reopened');
+}
+
+function submitContact(e){ e.preventDefault(); toast("Message sent! We'll be in touch shortly ✓"); e.target.reset(); }
+
+function init(){
+  restoreSession();
+  updateUserBadge();
+  renderCategories();
+  renderFiltersUI();
+  renderShop();
+  renderTickets();
+  renderAdminStats();
+  updateCartUI();
+  initMic();
+  initSpeech();
+  updateSpeakerIcon();
+  $('langBadge').textContent = state.chat.lang === 'SEP' ? 'NSO' : state.chat.lang;
+  showView('home');
+  document.addEventListener('keydown', e=>{
+    if(e.key==='Escape'){ closeModal(); closeCart(); closeAuth(); $('langModal').classList.remove('open'); }
+  });
+  document.querySelectorAll('.ticket, .account-menu li').forEach(el=>{
+    el.addEventListener('contextmenu', e=>e.preventDefault());
+  });
+}
+
+init();
+</script>
+</body>
+</html>
